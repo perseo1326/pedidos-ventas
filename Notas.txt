@@ -1,0 +1,3 @@
+09-04-2021
+    ddbb -> tabla "pedidos" -> col "pedidos_pagado" =
+        set valor por defecto = 'N'

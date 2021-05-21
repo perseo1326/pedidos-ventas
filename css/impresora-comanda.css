@@ -1,0 +1,53 @@
+div#hoja {
+	width: 8cm;
+	border: 2px dotted gray;
+	overflow: hidden;
+    /* 31 caracteres */
+	font-family: "Courier New", Courier, monospace; 
+	/* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+
+.centro {
+	text-align: center;
+}
+
+.p-plato {
+	border-bottom: 1px solid black;
+	padding: 0.5rem;
+	margin: 0.4rem 0.3rem;
+}
+
+span.p-cantidad {
+	font-weight: bolder;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	/* font-size: 0; */
+}
+
+ul li {
+    display: inline;
+    padding: 0.2rem ;
+    margin: 0.2rem ;
+    /* border: 1px solid gray; */
+}
+
+.sin {
+    text-decoration: line-through;
+}
+
+.sub {
+	text-decoration: underline;
+}
+
+p.p-pago {
+	font-size: 1.3rem;
+}
+
+span img {
+	width: 1.5rem;
+	height: 1.5rem;
+}

@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Este trozo de codigo es para dar estilo a un "input" de tipo "number"
+    input[type="number"] cambiando de estilo los botones de incremento y decremento.
+    
+    es necesario crear un par de botones separados para cada uno de los controles
+    para subir y bajar el conteo del input y controlarlos por medio de 
+    Javascript o JQuery. Y lo primero que se hace es desaparecer las flechas 
+    que muestra el control (input) por defecto para que ningun navegador las muestre.
+    
+    Para usarlo es necesario crea la siguiente estructura HTML y colocar las correctas 
+    clases CSS para los estilos.
+    
+        <div class="number-input">
+            <button>&plus;</button>
+            <input class="medio" type="number" name="cantidad" id="" min="1" step="1" max = "99" value="1">
+            <button>&minus;</button>
+        </div>
+    */
+
+body {
+	background-color: gray;
+}
+
+input[type="number"] {
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+.number-input,
+.number-input * {
+    box-sizing: border-box;
+    /* --color-a-botones: darkgreen; */
+}
+
+.number-input {
+	/* border: 2px solid var(--color-a-botones); */
+	border: 2px solid red;
+	display: inline-flex;
+}
+.number-input button {
+	-webkit-appearance: none;
+	outline: none;
+	position: relative;
+	/* margin: 0;
+	background-color: transparent;
+	border: none;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	cursor: pointer; */
+}
+
+.number-input input[type="number"] {
+	/* max-width: 5rem; */
+	/* padding: 0.5rem;
+	border: solid #ddd;
+	border-width: 0 2px;
+	/* font-size: 2rem; */
+	/* height: 3rem; */
+	/* font-weight: bold;  */
+}

@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	/* font-size: 16px; */
+}
+
+/* 
+    hoja de estilos para elementos puntuales 
+*/
+
+table tr th {
+	background-color: lightgray;
+	text-align: center;
+	padding: 0.4rem 0.2rem;
+}
+
+table,
+th,
+td {
+	border: 1px solid transparent;
+	border-collapse: collapse;
+	padding: 0.2rem;
+}
+
+table tr td.izq {
+	text-align: left;
+	padding: 0.2rem 0 0.2rem 0.4rem;
+}
+
+table tr td.der {
+	text-align: right;
+	padding: 0.2rem 0.4rem 0.2rem 0;
+}
+
+table tr:nth-child(even) {
+	/* background-color: var(--color-plato); */
+	background-color: var(--color-botones);
+}
+
+table tr:nth-child(odd) {
+	/* background-color: var(--color-botones); */
+	background-color: white;
+}
+
+table tbody tr.desconocido {
+	background-color: orangered;
+	color: white;
+}
+
+table tbody tr.totales {
+	background-color: lightgray;
+}
+
+/* ********************************************************************* */
+
+button {
+	background-color: lightgray;
+}
+
+div.cant-bebida {
+	position: relative;
+}
+
+div div.txt-bebida {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 0.5rem;
+	font-size: 7em;
+	font-weight: bold;
+}
+
+div.txt-bebida-blanco {
+	color: white;
+}
+
+/* ********************************************************************* */
+/* ********************************************************************* */
+/* PAGINA PAGAR */
+/* ********************************************************************* */
+/* ********************************************************************* */
+
+label {
+	display: block;
+	font-size: 1.2rem;
+}
+
+/* clase para ubicar el icono de equis para limpiar los input:text */
+.limpiar-texto {
+	flex-wrap: nowrap;
+	align-items: center;
+	position: relative;
+}
+
+.limpiar-texto > i {
+	position: absolute;
+	right: 0.4rem;
+}
+
+input[type="number"].limpiar, 
+input[type="tel"].limpiar,
+input[type="text"].limpiar {
+	padding-right: 2.5srem;
+}
+
+input[type="number"].limpiar + i, 
+input[type="tel"].limpiar + i,
+input[type="text"].limpiar + i {
+	font-size: 2rem;
+	color: black;
+	opacity: 0.6;
+	/* transform: translate(-2rem, 0); */
+}
+
+input[type="number"].limpiar + i:hover, 
+input[type="tel"].limpiar + i:hover,
+input[type="text"].limpiar + i:hover {
+	opacity: 1;
+}
+
+.tel-pedido {
+	min-height: 4.2rem;
+	background-color: var(--color-botones);
+	border-top: 2px solid var(--color-a-botones);
+	border-bottom-left-radius : 0.5rem;
+	border-bottom-right-radius : 0.5rem;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.tel-pedido-disabled > label, 
+.tel-pedido-disabled > div {
+	/* display: none; */
+	visibility:hidden;
+}
+
+.tabcontent {
+	background-color: var(--color-botones);
+	min-height: 9rem;
+	border-top: 2px solid var(--color-a-botones);
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.tabcontent-disabled {
+	display: none;
+}
+
+div input[type="button"].activo {
+	background-color: var(--color-2do-fondo);
+}
+
+
+
+/* ********************************************************************* */
+
+
+
+
+
+/* *************** MEDIA QUERY PARA 768px *************** */
+
+@media screen and (max-width: 768px) {
+	
+	div div.txt-bebida {
+		font-size: 5em;
+	}
+}

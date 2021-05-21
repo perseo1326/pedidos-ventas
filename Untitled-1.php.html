@@ -1,0 +1,104 @@
+<div class="ancho-100 flex-container" style="margin-top: 0.5rem;">
+    <div class="ancho-66">
+
+        <div>
+     <div id="pl-0" class="margen-b-05 plato sombra-x">         <div class=" edicion clearfix"> 			<span class="bloque" onclick="javascript:dibujarEditarPlato('menuEditarPlato-0')"><i id="editarPlato-0" class="fa fa-pen-square txt-medio"></i></span> 		</div> 		<div class="menuEditarPlato no-visible" id="menuEditarPlato-0" oncontextmenu="return false;"> 			<h3 class="padding-05">Opciones de Plato</h3> 			<div> 				<span class="pad-horizontal-1 padding-05 bloque" onclick="javascript:editarPlato(0)">Editar Plato...</span> 				<span class="pad-horizontal-1 padding-05 bloque" onclick="javascript:clonarPlato(0)">Duplicar Plato</span> 				<span class="pad-horizontal-1 padding-05 bloque" onclick="javascript:eliminarPlato(0)">Eliminar Plato</span> 			</div> 		</div> 		<div>             <h2 class="txt-medio ">Plato No. 1<span class="txt-medio nombre"> -- JOHN -- </span></h2>         </div>     <div id="elem-0-0" class="flex-container flex-baseline"><p class="producto txt-medio">1 - Pollo / Queso</p><input type="button" value="Toppings"><div class="flex-container flex-baseline"><p class="toppings top-si ">TODO</p></div></div><div id="elem-0-1" class="flex-container flex-baseline"><p class="producto txt-medio">1 - Camarón / Frijol</p><input type="button" value="Toppings"><div class="flex-container flex-baseline"><p class="toppings top-si ">TODO</p></div></div></div>      <div id="pl-1" class="margen-b-05 plato sombra-x">         <div class=" edicion clearfix"> 			<span class="bloque" onclick="javascript:dibujarEditarPlato('menuEditarPlato-1')"><i id="editarPlato-1" class="fa fa-pen-square txt-medio"></i></span> 		</div> 		<div class="menuEditarPlato no-visible" id="menuEditarPlato-1" oncontextmenu="return false;"> 			<h3 class="padding-05">Opciones de Plato</h3> 			<div> 				<span class="pad-horizontal-1 padding-05 bloque" onclick="javascript:editarPlato(1)">Editar Plato...</span> 				<span class="pad-horizontal-1 padding-05 bloque" onclick="javascript:clonarPlato(1)">Duplicar Plato</span> 				<span class="pad-horizontal-1 padding-05 bloque" onclick="javascript:eliminarPlato(1)">Eliminar Plato</span> 			</div> 		</div> 		<div>             <h2 class="txt-medio ">Plato No. 2</h2>         </div>     <div id="elem-1-0" class="flex-container flex-baseline"><p class="producto txt-medio">1 - Azúcar</p><input type="button" value="Toppings"><div class="flex-container flex-baseline"><p class="toppings top-no ">NATURAL</p></div></div><div id="elem-1-1" class="flex-container flex-baseline"><p class="producto txt-medio">2 - Res / Queso</p><input type="button" value="Toppings"><div class="flex-container flex-baseline"><p class="toppings top-si ">TODO</p></div></div></div>         </div>
+
+    </div>
+
+
+    <div class="flex-container ancho-33">
+    <form action="" method="post">
+            <!-- nombre para el pedido -->
+            <div class="borde flex-container centrar-elem margen-b-05">
+                <label class="txt-medio margen-05" for="nombrePedido">Nombre del Pedido:</label>
+                <input class="ancho-50 margen-05" type="text" name="nombrePedido" id="nombrePedido">
+            </div>
+
+            <!-- forma de pedido: presencial o por telefono -->
+            <div class="borde padding-05">
+
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+
+                <label for="hablo">Habló</label>
+                <input type="radio" name="hablo" id="">
+                <label for="aqui">Aquí</label>
+                <input type="radio" name="aqui" id="">
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" name="telefono" id="">
+                </div>
+            </div>
+
+            <!-- forma de pago -->
+            <div class="padding-05">
+                <div class="borde">
+
+                    <div class="flex-container tab">
+                        <button class="ancho-50 txt-medio padding-05" onclick="metodoPago(event, 'efectivo')">Efectivo</button>
+                        <button class="ancho-50 txt-medio padding-05" onclick="metodoPago(event, 'transfer')">Transferencia</button>
+                    </div>
+
+                    <div class="padding-05">
+                        <span class="txt-medio">Total a pagar:</span>
+                        <span class="txt-big">$289</span>
+                    </div>
+                    <div id="efectivo" class="padding-05 tabcontent">
+                        <label for="efectivo">Efectivo</label>
+                        <input type="text" name="efectivo" id="">
+                        <br>
+                        <label for="cambio">Cambio</label>
+                        <input type="text" name="cambio" id="">
+                    </div>
+
+                    <div id="transfer" class="borde padding-05 tabcontent">
+                        <label for="transferNum">Transferencia No.</label>
+                        <input type="text" name="transferNum" id="">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <!-- botones de acciones -->
+        <div class="acciones ancho-100">
+            <div class="btn-acciones">
+                <input
+                    id="pedido"
+                    data-destino="<?php echo DESTINO_PEDIDO; ?>"
+                    class="txt-medio margen-b-05"
+                    type="button"
+                    value="Pedido"
+                />
+                <input
+                    id="bebidas"
+                    data-destino="<?php echo DESTINO_BEBIDAS; ?>"
+                    class="txt-medio margen-b-05"
+                    type="button"
+                    value="Bebidas"
+                />
+                <input
+                    id="cancelar"
+                    class="txt-medio margen-b-05"
+                    type="button"
+                    value="Cancelar"
+                />
+            </div>
+        </div>
+    </div>
+
+</div>
+            <!-- formulario escondido para el envio de la informacion del pedido -->
+			<div>
+				<form id="form-pagar" name="form-pagar" action="main.controlador.php" method="POST">
+					<input id="pagar-var" type="hidden" name="pagar" value="">
+					<input id="destino-var" type="hidden" name="destino" value="">
+				</form>
+			</div>
+
+                    
+</body>
+<script src="../js/pagar.js"></script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="./css/estilos.css" />
+
+	<title>Anca la Yola - Inicio</title>
+</head>
+
+<body>
+	<div class="flex-container centrar-elem ">
+		<div class="">
+			<img id="imgBienvenida" src="./images/Doll.svg" alt="Anca la Yola" srcset="./images/Doll.svg" />
+		</div>
+
+		<div class="">
+			<div class="inicio-botones">
+				<a href="pedido.html"><button class="btn-inicio ancho-100 txt-big">Iniciar Pedido</button></a>
+				<button id="btnModalBusquedaPedido" class="btn-inicio ancho-100 txt-big">Buscar Pedido</button>
+				<!-- <input
+					class="tx-inicio"
+					type="text"
+					name="buscarPedido"
+					id="buscarPedido"
+					placeholder="Nombre del Pedido"
+					/> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal para la busqueda -->
+	<div id="modalBusquedaPedido" class="modal">
+		<div id="" class="ancho-50 modal-contenido">
+			<span id="modalClose" class="float-der close-modal ">&times;</span>
+			<!-- <form action="pedido.html" method="post"> -->
+			<h2>Búsqueda de Pedido</h2>
+			<input type="text" class="ancho-100 margen-b-05" name="" id="">
+			<br>
+			<button class="btn-inicio ancho-100 txt-big" type="submit">Buscar</button>
+			</form>
+		</div>
+	</div>
+</body>
+<script src="./js/inicio.js"></script>
+
+</html>

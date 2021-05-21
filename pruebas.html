@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/estilos.css" />
+
+		<style></style>
+	</head>
+	<body>
+		<div class="flex-container fondo-suave">
+			<input id="boton" type="button" value="Ingresar al sistema....">
+		</div>
+	</body>
+	<script>
+		var boton = document.getElementById("boton");
+		boton.onclick = function (e) {
+			console.log(e);
+			document.location.assign("inicio.php");
+		}
+	</script>
+</html>

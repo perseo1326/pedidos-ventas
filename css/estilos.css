@@ -1,0 +1,691 @@
+@charset "utf-8";
+/* CSS Document */
+
+:root {
+	--color-botones: rgb(192, 245, 190);
+	--color-a-botones: darkgreen;
+	/* --color-b-botones: rgb(76, 175, 80); */
+	/* --color-focus: rgb(66, 255, 66); */
+	--color-focus: rgb(76, 175, 80);
+	--color-fondo: rgb(144, 238, 144);
+	--color-2do-fondo: rgb(255, 255, 0);
+	--color-plato: lightyellow;
+
+	--borde-rad-05: 0.5rem;
+	--borde-rad-1: 1rem;
+
+}
+
+* {
+	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+body {
+	background-color: whitesmoke;
+}
+
+hr {
+	margin: 0.5rem 0;
+	color: black;
+}
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex-inline {
+	display: inline-flex;
+}
+
+.flex-baseline {
+	align-items: baseline;
+}
+
+.flex-top {
+	align-items:flex-start;
+}
+
+.flex-columna {
+	flex-direction: column;
+}
+
+.flex-der {
+	flex-direction: row-reverse;
+}
+
+.centrar-elem {
+	justify-content: space-around	;
+	/* justify-content: center; */
+	/* alineacion vertical */
+	align-items: center;
+}
+
+.flex-centrar {
+	justify-content: center;
+}
+
+.flex-espaciados {
+	justify-content: space-between;
+}
+
+.float-der {
+	float: right;
+}
+
+.float-izq {
+	float: left;
+}
+
+.txt-icono {
+	font-size: 4rem;
+}
+
+.txt-big {
+	font-size: 2rem;
+}
+
+.txt-neg {
+	font-weight: bolder;
+}
+
+.txt-medio {
+	font-size: 1.5rem;
+}
+
+.txt-centro {
+	text-align: center;
+}
+
+.txt-der {
+	text-align: right;
+}
+
+.fondo-suave {
+	background-color: var(--color-botones);
+}
+
+.fondo-error {
+	background-color: orangered;
+}
+
+.borde {
+	border: 2px solid var(--color-a-botones);
+}
+
+.borde-rad-05 {
+	border-radius: var(--borde-rad-05);
+}
+
+.borde-rad-1 {
+	border-radius: var(--borde-rad-1);
+}
+
+.borde-b {
+	border-bottom: 2px solid var(--color-a-botones);
+}
+
+.ancho-25 {
+	width: 25%;
+}
+
+.ancho-33 {
+	width: 33%;
+}
+.ancho-50 {
+	width: 50%;
+}
+
+.ancho-66 {
+	width: 66%;
+}
+
+.ancho-75 {
+	width: 75%;
+}
+
+.ancho-100 {
+	width: 100%;
+}
+
+.ancho-max-80 {
+	max-width: 80%;
+}
+
+.ancho-max-90 {
+	max-width: 90%;
+}
+
+.padding-05 {
+	padding: 0.5rem;
+}
+
+.padding-1 {
+	padding: 1rem;
+}
+
+.padding-vert-05 {
+	padding: 0.5rem 0;
+}
+
+.padding-hor-05 {
+	padding: 0 0.5rem;
+}
+
+.padding-ver-1 {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.padding-hor-1 {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.margen-1 {
+	margin: 1rem;
+}
+
+.margen-05 {
+	margin: 0.5rem;
+}
+
+.margen-b-05 {
+	margin-bottom: 0.5rem;
+}
+
+.margen-b-1 {
+	margin-bottom: 1rem;
+}
+
+.margen-a-05 {
+	margin-top: 0.5rem;
+}
+
+.margen-lateral-05 {
+	margin: 0 0.5rem;
+}
+
+.margen-lateral-1 {
+	margin: 0 1rem;
+}
+
+.sombra-x {
+	box-shadow: 4px 4px 6px gray;
+}
+
+.sombra-s {
+	box-shadow: 2px 2ps 2px gray;
+}
+
+header {
+	background-color: var(--color-botones);
+	padding: 0.3rem;
+	border-bottom: 2px solid var(--color-a-botones);
+}
+
+/* codigo para el dropdown del usuario y cerrar sesion */
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropbtn {
+	background-color: var(--color-focus);
+	color: white;
+	padding: 0.5rem;
+	border: none;
+	cursor: pointer;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	right: 0;
+	background-color: var(--color-plato);
+	min-width: 10rem;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 1rem;
+	text-decoration: none;
+	display: block;
+}
+
+/*
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+*/
+/* FIN - codigo para el dropdown del usuario y cerrar sesion */
+
+div img {
+	width: auto;
+	height: calc(99vh);
+}
+
+.btn-inicio {
+	/* margin-bottom: 1rem; */
+	padding: 1rem 2rem;
+	background-color: var(--color-botones);
+	border: 2px solid var(--color-a-botones);
+	border-radius: var(--borde-rad-1);
+	cursor: pointer;
+	color: var(--color-a-botones);
+}
+
+.panel-fondo {
+	background: transparent;
+	/* background: lightgrey; */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+div button.btn-inicio:hover {
+	background-color: var(--color-2do-fondo);
+	border: 2px solid var(--color-a-botones);
+	color: var(--color-a-botones);
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"] {
+	background-color: white;
+	padding: 0.5rem;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus, 
+input[type="number"]:focus {
+	border: 2px solid black;
+	border-radius: 0.5rem;
+}
+
+div p + input[type="button"] {
+	margin: 0.2rem;
+	padding: 0.3rem;
+	background-color: lightblue;
+	border-radius: var(--borde-rad-05);
+}
+
+div.modal {
+	display: none;
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgba(28, 24, 24, 0.6); /* Black w/ opacity */
+}
+
+div.modal-contenido {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	background-color: var(--color-fondo);
+	transform: translate(-50%, -50%);
+}
+
+/* The Modal Close Button */
+.close-modal {
+	color: var(--color-a-botones);
+	font-size: 2rem;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+	color: white;
+}
+
+/* *************** PAGINA PEDIDO *************** */
+
+.card-sabor {
+	background-color: var(--color-botones);
+	border: 2px solid gray;
+	width: 8rem;
+	margin: 0.5rem;
+}
+
+.card-imagen {
+	margin: auto;
+	padding: 2px;
+	height: auto;
+	/* border-bottom: 1px solid gray; */
+}
+
+/* estilos para la pagina de bebidas */
+.bebida-card {
+	width: 9rem;
+}
+
+/* seccion ACCIONES */
+
+div.acciones {
+	padding: 1rem 0.5rem;
+}
+
+div.btn-acciones {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+input[type="button"] {
+	background-color: var(--color-botones);
+	color: black;
+	border: 2px solid var(--color-a-botones);
+	border-radius: var(--borde-rad-05);
+	cursor: pointer;
+}
+
+input[type="button"]:disabled {
+	background-color: lightgray;
+	border-color: lightslategray;
+	color:rgb(128, 128, 128);
+	cursor: not-allowed;
+}
+
+div.btn-acciones input[type="button"]:hover {
+	background-color: var(--color-2do-fondo);
+}
+
+div.btn-acciones input[type="button"]:active {
+	transform: translate(4px, 4px);
+	box-shadow: 0 0 transparent;
+}
+
+div.pedido {
+	width: 75%;
+	padding: 1rem 0.2rem 1rem 1rem;
+}
+
+.plato {
+	position: relative;
+	padding: 0.5rem 1.7rem 0.5rem 0.5rem;
+	background-color: var(--color-plato);
+	border: 1px solid black;
+	border-radius: 0.5rem;
+	min-height: 6rem;
+}
+
+.plato div.edicion {
+	position: absolute;
+	top: 0.2rem;
+	right: 0.2rem;
+}
+
+div span.error-total {
+	color: orangered;
+}
+
+span i:hover {
+	color: var(--color-botones);
+}
+
+div p.producto {
+	margin-bottom: 0.5rem;
+	padding: 0.2rem 0.3rem;
+	/* display: inline-block; */
+	border-bottom: 1px solid gray;
+}
+
+.toppings {
+	display: inline-block;
+	padding: 0.2rem 0.5rem;
+	margin: 0.1rem;
+	border: 1px solid var(--color-a-botones);
+	/* border-radius: 4px; */
+	border-radius: var(--borde-rad-05);
+}
+
+.top-no {
+	color: red;
+	background-color: yellow;
+	text-decoration: line-through;
+}
+
+.top-neutral {
+	background-color: lightblue;
+}
+
+.top-si {
+	color: black;
+	background-color: palegreen;
+}
+
+.menuEditarPlato {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	border: 1px solid black;
+	background-color: var(--color-plato);
+	box-shadow: 4px 4px 4px gray;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.bloque {
+	display: block;
+}
+
+.bloque:hover {
+	background-color: var(--color-2do-fondo);
+}
+
+input[type="button"].limpiar-nombre {
+	margin-left: 0.5rem;
+	padding: 0.5rem;
+}
+
+.nombre {
+	color: red;
+	text-decoration: underline;
+	/* font-weight: bolder; */
+}
+
+.visible {
+	display: block;
+}
+
+.no-visible {
+	display: none;
+}
+
+/* *************** MEDIA QUERY PARA 768px *************** */
+
+@media screen and (max-width: 768px) {
+	.txt-medio {
+		font-size: 1.2rem;
+	}
+
+	.txt-big {
+		font-size: 1.6rem;
+	}
+}
+
+/* *************** MEDIA QUERY PARA 600px *************** */
+
+@media screen and (max-width: 600px) {
+	div img {
+		width: 150px;
+		height: auto;
+	}
+
+	div.modal-busqueda-contenido {
+		width: 80%;
+		/* transform: translate(-50%, -50%	); */
+	}
+
+	.txt-medio {
+		font-size: 1.1rem;
+	}
+
+	.txt-big {
+		font-size: 1.4rem;
+	}
+
+	div.pedido {
+		padding: 0.5rem;
+	}
+
+	div.acciones {
+		padding: 0.5rem;
+	}
+}
+
+/* @media screen and (max-width: 768px) { */
+
+/* *************** PAGINA PEDIDO *************** */
+
+@media screen and (orientation: landscape) {
+	div.card-sabor {
+		width: 12vw;
+	}
+}
+
+/* ************************************************************** */
+/* ********* MODIFICACION PARA EL input=number ****************** */
+/* ************************************************************** */
+
+input[type="number"] {
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+.number-input {
+	display: inline-flex;
+	margin-bottom: 1rem;
+}
+
+.number-input button:first-child {
+	border-bottom-left-radius: 0.5rem;
+	border-top-left-radius: 0.5rem;
+	border-right: none;
+}
+
+.number-input button:last-child {
+	border-bottom-right-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	border-left: none;
+}
+
+.number-input button {
+	outline: none;
+	position: relative;
+	background-color: var(--color-botones);
+	width: 33%;
+	margin: 0px;
+	padding: 0;
+	cursor: pointer;
+	/* cuidado: si se retira se pierde el borde del elemento, 
+  revisar -> button:last-first-child */
+	border: 2px solid var(--color-a-botones);
+}
+
+.number-input button:active {
+	background-color: yellow;
+}
+
+.number-input input[type="number"] {
+	outline: none;
+	position: relative;
+	width: 34%;
+	min-width: 2rem;
+	margin: 0;
+	padding: 0.5rem 0;
+	border: 2px solid var(--color-a-botones);
+	font-weight: bolder;
+}
+
+/* ************************************************************** */
+/* ********* MODIFICACION PARA EL input=CHECKBOX **************** */
+/* ************************************************************** */
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"] + label {
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label div {
+	box-shadow: 6px 6px 8px black;
+}
+
+input[type="checkbox"]:checked + label div {
+	background-color: var(--color-2do-fondo);
+	box-shadow: 0 0 0 black;
+	/* transform: translate(6px, 6px); */
+}
+
+/* ************************************************************** */
+
+/* ************************************************************** */
+/* ********* MODIFICACION PARA EL input=RADIOBUTTON ************* */
+/* ************************************************************** */
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="radio"] + label {
+	cursor: pointer;
+}
+
+input[type="radio"] + label i {
+	text-align: center;
+	padding: 0 0.3rem;
+	color: black;
+	border: 2px solid transparent;
+}
+
+input[type="radio"]:checked + label.pago-pedido i {
+	border: 2px solid black;
+	border-radius: var(--borde-rad-05);
+	background-color: var(--color-2do-fondo);
+}
+
+/* ** MODIFICACION PARA EL input=radio => forma de pago *** */
+input[type="radio"]:checked + label span {
+	background-color: var(--color-2do-fondo);
+}
+
+/* ** MODIFICACION PARA EL input=radio => forma de pago -> Modal pago *** */
+input[type="radio"]:checked + label {
+	background-color: var(--color-fondo);
+}
+
+input[type="radio"]:checked + label.debe {
+	background-color: var(--color-2do-fondo);
+}
+/* ************************************************************** */
+

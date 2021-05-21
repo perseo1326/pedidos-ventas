@@ -1,0 +1,49 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default"
+				},
+				"previewLimit": 80,
+				"server": "192.168.1.101",
+				"port": 3306,
+				"askForPassword": true,
+				"driver": "MySQL",
+				"name": "maria",
+				"username": "maria",
+				"database": "ancalayola"
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Listen for XDebug",
+				"type": "php",
+				"request": "launch",
+				"port": 9003,
+				"pathMappings": {
+					// "/var/www/html": "${workspaceRoot}/www",
+					"/home/ubuntu-server/html/ancalayola": "${workspaceRoot}",
+					// "/app": "${workspaceRoot}/app"
+					".": "${workspaceRoot}"
+				}
+			},
+			{
+				"name": "Launch currently open script",
+				"type": "php",
+				"request": "launch",
+				"program": "${file}",
+				"cwd": "${fileDirname}",
+				"port": 9003
+			}
+		]
+	}
+}
