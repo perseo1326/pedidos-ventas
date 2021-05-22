@@ -15,7 +15,6 @@ const DB_CONFIG = ['host' => 'localhost',
 
 class Conexion
 {
-    
     // ****************************************************************
     // funcion para la conexion a la ddbb
     public static function conectar(){
