@@ -17,12 +17,11 @@
             </div>
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti sunt delectus deserunt officia praesentium maiores quo quaerat esse at.</p>
+
             telefono
             fecha
             precio
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, assumenda.</p>
-            
         </div>
 
             <!-- <input type="button" value="Buscar" class="padding-05"> -->
