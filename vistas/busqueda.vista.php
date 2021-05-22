@@ -16,6 +16,7 @@
                 <input type="text" name="nombre" id="" class="ancho-100" placeholder="Nombre">
             </div>
 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti sunt delectus deserunt officia praesentium maiores quo quaerat esse at.</p>
             telefono
             fecha
             precio
