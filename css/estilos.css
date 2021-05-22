@@ -136,6 +136,14 @@ hr {
 	border-bottom: 2px solid var(--color-a-botones);
 }
 
+.ancho-15 {
+	width: 15%;
+}
+
+.ancho-20 {
+	width: 20%;
+}
+
 .ancho-25 {
 	width: 25%;
 }
@@ -158,6 +166,10 @@ hr {
 
 .ancho-75 {
 	width: 75%;
+}
+
+.ancho-80 {
+	width: 80%;
 }
 
 .ancho-100 {
