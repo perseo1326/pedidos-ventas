@@ -3,6 +3,11 @@
 // CONSTANTES DEFINIDAS Y SU LOCALIZACION
 // ****************************************************************
 
+// definiciones de configuracion del sitio
+// const SERVIDOR = "http://192.168.1.101/ancalayola/";
+// $SERVIDOR = "http://192.168.1.101/ancalayola/";
+
+
 // definiciones para las pagina destino que seleccione el usuario
 const PEDIDO_PAG = 'PEDIDO_PAG';
 const BEBIDAS_PAG = 'BEBIDAS_PAG';

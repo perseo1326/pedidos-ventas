@@ -326,7 +326,7 @@ input[type="text"],
 input[type="tel"],
 input[type="number"] {
 	background-color: white;
-	padding: 0.5rem;
+	padding: 0.3rem;
 }
 
 input[type="text"]:focus,
@@ -409,7 +409,8 @@ div.btn-acciones {
 	flex-direction: column;
 }
 
-input[type="button"] {
+input[type="button"],
+button {
 	background-color: var(--color-botones);
 	color: black;
 	border: 2px solid var(--color-a-botones);
@@ -417,7 +418,8 @@ input[type="button"] {
 	cursor: pointer;
 }
 
-input[type="button"]:disabled {
+input[type="button"]:disabled,
+button:disabled {
 	background-color: lightgray;
 	border-color: lightslategray;
 	color:rgb(128, 128, 128);
