@@ -1,7 +1,7 @@
 <?php
 
 
-class Plato_controlador {
+class Plato_Controlador {
 
     private $cantTotal;
     private $elementos;

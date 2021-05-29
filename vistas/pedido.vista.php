@@ -127,12 +127,10 @@
 			</div>
 		</div>
 
-	</body>
 	<script>
 		<?php
 			echo $pedidoJson;
 		?>
-
 	</script>
 
 	<script src="../js/pedido.js"></script>

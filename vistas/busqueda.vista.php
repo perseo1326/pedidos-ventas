@@ -40,59 +40,44 @@
     <div class="flex-container ancho-100">
         <h2 class="margen-b-05 txt-centro txt-big ancho-100">Resultados</h2>
         <div class="flex-container ancho-100">
-                <!-- Tabla resumen de pedidos -->
-				<div class="ancho-100 borde">
-					<table id="busqueda-pedidos" class="ancho-100 margen-b-1">
-						<thead>
-							<tr>
-								<th>No. Pedido</th>
-								<th>Nombre</th>
-								<th>Tipo</th>
-								<th>Pagado</th>
-								<th>Precio</th>
-								<th>Telefono</th>
-								<th>Fecha</th>
-                                <th>Hora</th>
-								<th>Detalle</th>
-                                <th>Notas</th>
-							</tr>
-						</thead>
-						<tbody id="t-busqueda">
-                            <!-- datos de los pedidos -->
-                            <tr>
-                                <td class="txt-centro">12</td>
-                                <td>lic carlos omar huerta</td>
-                                <td>Hablo</td>
-                                <td>Pagado</td>
-                                <td class="txt-centro">$645</td>
-                                <td>9931525433</td>
-                                <td>2021-05-08</td>
-                                <td>16:48:58</td>
-                                <td class="txt-centro"><a  href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></td>
-                                <td class="txt-centro"><a href="#"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></a></td>
+            <!-- Tabla resumen de pedidos -->
+            <div class="ancho-100 borde">
+                <table id="busqueda-pedidos" class="ancho-100 margen-b-1">
+                    <thead>
+                        <tr>
+                            <th>No. Pedido</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Pagado</th>
+                            <th>Precio</th>
+                            <th>Telefono</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Detalle</th>
+                            <th>Notas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="t-busqueda">
+                        <!-- datos de los pedidos -->
+                        <?php foreach ($mostrarUltimosPedidos as $key => $pedido) : ?>
+                            <tr id='<?php echo $pedido->getNumPedido(); ?>'>
+                                <td class='txt-centro'><?php echo $pedido->getNumPedido(); ?></td>
+                                <td><?php echo $pedido->getNombre(); ?></td>
+                                <td class='txt-centro'><?php echo $pedido->getTipoPedido(); ?></td>
+                                <td class='txt-centro'><?php echo $pedido->getstatusPagado(); ?></td>
+                                <td class='txt-centro'>$<?php echo $pedido->getTotal();?></td>
+                                <td><?php echo $pedido->getTelefono();?></td>
+                                <td><?php echo $pedido->getFecha(); ?></td>
+                                <td><?php echo $pedido->getHora();?></td>
+                                <td class='txt-centro'><a href='#'><i class='fa fa-chevron-circle-right' aria-hidden='true'></i></a></td>
+                                <td class='txt-centro'><a href='#'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i></a></td>
                             </tr>
-                            <tr>
-                                <td class="txt-centro">12</td>
-                                <td>lic carlos omar huerta</td>
-                                <td>Aqui</td>
-                                <td>Pagado</td>
-                                <td>$645</td>
-                                <td>9931525433</td>
-                                <td>2021-05-08</td>
-                                <td>16:48:58</td>
-                                <td class="txt-centro"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></td>
-                                <td class="txt-centro"><a href="#"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></a></td>
-                            </tr>
-						</tbody>
-					</table>
-				</div>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
-
-
-
-
-</body>
 
 <script src="../js/busqueda.js"></script>

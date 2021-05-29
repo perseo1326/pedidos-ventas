@@ -69,3 +69,7 @@ const TODO = "TODO";
 const NADA = 'NADA';
 const TOPPINGS = ['FRIJOLTOP' => 'FRIJOL', 'VERDURA' => 'REPOLLO', 'QRAYADO' => 'qRAYADO', 'CEBOLLA' => 'CEBOLLA', 'TOMATE' => 'TOMATE'];
 
+// MODULO DE BUSQUEDA
+
+const DIAS_SEMANA = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
+const MESES_ANNO = [' ', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec'];

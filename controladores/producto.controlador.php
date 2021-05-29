@@ -2,7 +2,7 @@
 
 // definicion de clase PRODUCTO
 
-class Producto_controlador {
+class Producto_Controlador {
 
 	// propiedades
 	protected $productoID;

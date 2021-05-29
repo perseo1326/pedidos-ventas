@@ -227,7 +227,6 @@
         </div>
     </div>
 
-</body>
     <script>
 		<?php
 			echo "$pedidoJson";

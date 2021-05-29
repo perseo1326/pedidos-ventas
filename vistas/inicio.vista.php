@@ -29,7 +29,7 @@
 		</div>
 	</div>
 
+	<script src="../js/inicio.js"></script>
 </body>
-<script src="../js/inicio.js"></script>
 
 </html>

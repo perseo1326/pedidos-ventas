@@ -2,7 +2,7 @@
 
 require_once ("../controladores/producto.controlador.php");
 
-    class Elemento_controlador
+    class Elemento_Controlador
     {
         private $cantidad;
         private $producto;
