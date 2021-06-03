@@ -9,7 +9,6 @@ require_once "../controladores/buscar.controlador.php";
 
 require_once "../controladores/funciones.controlador.php";
 
-date_default_timezone_set("America/Merida");
 
 $pedidos = new Buscar_modelo;
 $mostrarUltimosPedidos = [];

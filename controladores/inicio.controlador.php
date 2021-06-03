@@ -3,6 +3,8 @@ session_start();
 
 // require_once "../admin/config.php";
 
+date_default_timezone_set("America/Merida");
+
 $_SESSION["usuarioId"] = 1;
 $_SESSION["usuarioNombre"] = "Administrador";
 $_SESSION["pedido"] = null;

@@ -73,3 +73,10 @@ const TOPPINGS = ['FRIJOLTOP' => 'FRIJOL', 'VERDURA' => 'REPOLLO', 'QRAYADO' => 
 
 const DIAS_SEMANA = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
 const MESES_ANNO = [' ', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// contiene las columnas de la tabla "PEDIDOS" para las busquedas
+const ELEMENTOS = ['numPedido' => 'pedidos_numPedido',
+                    'nombre' => 'pedidos_nombre', 
+                    'numTelefono' => 'pedidos_numtelefono', 
+                    'total' => 'pedidos_total', 
+                    'fecha' => 'pedidos_fcreacion' ]; 

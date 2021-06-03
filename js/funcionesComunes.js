@@ -16,6 +16,23 @@ const kTop = {
 	nada: "NATURAL",
 };
 
+
+var patronNumerico = /[0-9.]/;
+
+// *************************************************************
+// funcion para filtrar caracteres escritos en un input segun
+// lo definido en el filtro o patron de una expresion regular "patron"
+function filtrarCaracteres(evento) {
+	let x = false;
+	if (patronNumerico.test(evento.key)) {
+		// patron valido
+		x = true;
+	} 
+	console.log(evento);
+	console.log(x);
+	return x;
+}
+
 // *************************************************************
 function mostrarModal(id) {
 	modal = document.getElementById(id);

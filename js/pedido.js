@@ -136,7 +136,7 @@ var modalClose = 	document.getElementById("modalClose");
 // *************************************************************
 
 // variable para expresion regular
-let patron = /[a-zA-Z0-9]/;
+let patronAlfaNumerico = /[a-zA-Z0-9]/;
 // patt.test(
 
 // variable que contiene las estructuras de datos para el pedido
@@ -532,7 +532,7 @@ function eliminarPlato(platoId) {
 // funcion para "clonar" un plato
 function clonarPlato(platoId) {
 	let nombre = prompt("Nombre para el nuevo plato", "");
-	console.log(patron.test(nombre));
+	console.log(patronAlfaNumerico.test(nombre));
 	platoId = Number(platoId);
 	elem = [];
 	pedido[platoId].elementos.forEach(i => {

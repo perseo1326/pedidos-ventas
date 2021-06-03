@@ -60,7 +60,7 @@ const TRANSFERENCIA = "TRANSFERENCIA";
 const PAGADO = "PAGADO";
 const DEBE = "DEBE";
 
-var patron = /[0-9.]/;
+// var patron = /[0-9.]/;
 
 // variable que contiene las estructuras de datos para el pedido
 let pedidoPagar = [];
@@ -82,18 +82,6 @@ if(pedidoJson == "" && hayBebidas !== true) {
 // *************************************************************
 // DECLARACION DE FUNCIONES
 // *************************************************************
-
-// *************************************************************
-// funcion para filtrar caracteres escritos en un input segun
-// lo definido en el filtro o patron de una expresion regular "patron"
-function filtrarCaracteres(evento) {
-	let x = false;
-	if (patron.test(evento.key)) {
-		// patron valido
-		x = true;
-	} 
-	return x;
-}
 
 // *************************************************************
 // retorna la forma de pago seleccionada (efectivo) o (transferencia)
