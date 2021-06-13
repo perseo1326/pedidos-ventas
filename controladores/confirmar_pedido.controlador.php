@@ -48,6 +48,8 @@
         
         $confirmarPedido_mdl->copiarDetallePedido($detallePedido);
         $confirmarPedido_mdl->setEstadoPedido(ESTADO_PEDIDO['CREACION']);
+
+        // TODO: confirmar el destino del pedido, "LLEVAR" OR "AQUI"
         $confirmarPedido_mdl->setDestinoPedido( PEDIDO_DESTINO['LLEVAR']);
         
         $orden = new OrdenJSON($pedidoJSON, $bebidasJSON);
