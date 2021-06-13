@@ -17,18 +17,6 @@
 		</div>
 	</div>
 
-	<!-- Modal para la busqueda -->
-	<div id="modalBusquedaPedido" class="modal">
-		<div id="" class="padding-1 borde borde-rad-1 ancho-75 modal-contenido">
-			<span id="modalClose" class="float-der close-modal ">&times;</span>
-			<h2 class="txt-big margen-b-05">Búsqueda de Pedido</h2>
-			<input type="text" class="borde borde-rad-05 ancho-100 margen-b-05" name="" id="">
-			<br>
-			<button class="btn-inicio margen-b-1 ancho-100 txt-big" type="submit">Buscar</button>
-			</form>
-		</div>
-	</div>
-
 	<script src="../js/inicio.js"></script>
 </body>
 

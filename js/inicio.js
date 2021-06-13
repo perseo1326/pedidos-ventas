@@ -1,26 +1,4 @@
 
-// Modal para la busqueda en la primera pagina
-
-let modalBusquedaPedido = document.getElementById("modalBusquedaPedido");
-let btnModalBusquedaPedido = document.getElementById("btnModalBusquedaPedido");
-let modalClose = document.getElementById("modalClose");
-
-btnModalBusquedaPedido.onclick = function() {
-    modalBusquedaPedido.style.display = "block";
-}
-
-// click en la X del modal para cerrarlo
-modalClose.onclick = function() {
-    modalBusquedaPedido.style.display = "none";
-}
-
-// click en la parte oscura del modal para cerrarlo
-window.onclick = function(event) {
-    if(event.target == modalBusquedaPedido) {
-        modalBusquedaPedido.style.display = "none";
-    }
-}
-
 //*******************************************************************
 // funcion para conocer el ancho o alto del area de cliente disponible segun el tamaño de la ventana
 function getWindowSize(direccion) {

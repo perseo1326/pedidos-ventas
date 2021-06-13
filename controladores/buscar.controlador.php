@@ -11,8 +11,8 @@ class Buscar_Controlador {
     protected $estado;
     protected $pagado;
     protected $total;
-    protected OrdenJSON $orden;
     protected $notas;
+    protected OrdenJSON $orden;
 
     public function __construct() {
         $this->numPedido = (int) 0;
@@ -23,8 +23,8 @@ class Buscar_Controlador {
         $this->estado = "";
         $this->pagado = "";
         $this->total = (int) 0;
-        $this->orden = new OrdenJSON;
         $this->notas ="";
+        $this->orden = new OrdenJSON;
     }
 
     public function copiarPedido($objeto) {
@@ -37,6 +37,7 @@ class Buscar_Controlador {
         $this->pagado = $objeto['pagado'];
         $this->total = (int) $objeto['total'];
         $this->notas = $objeto['notas'];
+        // returna falso o verdadero
         return ($this->orden->JSON2Orden($objeto['orden']));
     }
 
@@ -80,6 +81,18 @@ class Buscar_Controlador {
 
     public function getHora() :string {
         return date_format($this->fecha, "h:i a");
+    }
+
+    public function getNotas() :string {
+        return $this->notas;
+    }
+
+    public function hayNotas() :bool {
+        $hayNota = false;
+        if ($this->notas !== null) {
+            $hayNota = true;
+        }
+        return $hayNota;
     }
 
 }

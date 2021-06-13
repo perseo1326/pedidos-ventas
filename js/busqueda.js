@@ -1,11 +1,17 @@
 
 let bRegresar = 	document.getElementById("regresar");
-let bBuscar = 		document.getElementById("buscar2");
+let bBuscar = 		document.getElementById("buscar");
 let iNumPedido = 	document.getElementById("numPedido");
 let iNombre = 		document.getElementById("nombre");
 let iPrecio = 		document.getElementById("precio");
 let iNumTelefono = 	document.getElementById("numTelefono");
 let iFecha = 		document.getElementById("fecha");
+
+// elementos del modal
+// let modalBusqueda 	= document.getElementById("modalBusqueda");
+let modalClose		= document.getElementById("modalClose");
+let modalCancelar	= document.getElementById("modalCancelar");
+let modalGuardar	= document.getElementById("modalGuardar");
 
 const ELEMENTOS = { NUMPEDIDO: "numPedido", 
 					NOMBRE: "nombre", 
@@ -27,6 +33,19 @@ function busquedaAjax(elemento, valor) {
 	xmlhttp.send();
 }
 
+function seleccionarBusqueda() {
+	let valor = this.value;
+	let campos = document.getElementsByTagName("input");
+
+	for (let i = 0; i < campos.length; i++) {
+		let element = campos[i];
+		// element.value = "XXX";
+		console.log(element);
+	}
+
+	this.value = valor;
+}
+
 function ver (texto) {
 	document.getElementById("ajax").innerHTML = texto;
 }
@@ -34,14 +53,24 @@ function ver (texto) {
 
 // *************************************************************
 // boton REGRESAR
-bRegresar.onclick = function () {
+bRegresar.onclick = function () { 
 	location.href = "../controladores/inicio.controlador.php";
-};
+}
+
+modalCancelar.onclick = modalClose.onclick = function () {
+	modalBusqueda.style.display = "none";
+}
+
+modalGuardar.onclick = function () {
+	console.log("modal guardar -> onclick!");
+}
+
 
 bBuscar.onclick = function () {
-	console.log(ELEMENTOS.NOMBRE + " : " + iNumPedido.value);
+	// console.log(ELEMENTOS.NOMBRE + " : " + iNumPedido.value);
 	// busquedaAjax(ELEMENTOS.NUMPEDIDO, iNumPedido.value );
-	busquedaAjax(ELEMENTOS.NOMBRE, iNumPedido.value );
+	// busquedaAjax(ELEMENTOS.NOMBRE, iNumPedido.value );
+	// seleccionarBusqueda();
 }
 
 // iNumPedido.onkeyup = function (e) {
@@ -50,3 +79,8 @@ bBuscar.onclick = function () {
 // 	}
 // 	console.log(this.value);
 // }
+
+// *************************************************************
+// ONLOAD
+
+modalBusqueda.style.display = "block";

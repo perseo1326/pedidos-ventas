@@ -5,9 +5,9 @@ SELECT * FROM Pedidos;
 SELECT pedidos_numPedido AS pedido, pedidos_nombre AS nombre, pedidos_fmodificacion AS fecha, pedidos_tipo AS tipo, pedidos_numtelefono AS telefono, pedidos_estado AS estado,
 pedidos_pagado AS pagado, pedidos_total AS total, pedidos_ordenJSON AS orden, pedidos_notas AS notas
 FROM Pedidos
-WHERE pedidos_numPedido LIKE(2)
-LIMIT 100;
+WHERE pedidos_nombre LIKE ('%%') ;
 
+WHERE `pedidos_numPedido` LIKE("0");
 
 
 

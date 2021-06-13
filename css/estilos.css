@@ -66,9 +66,13 @@ hr {
 }
 
 .centrar-elem {
-	justify-content: space-around	;
+	justify-content: space-around;
 	/* justify-content: center; */
 	/* alineacion vertical */
+	align-items: center;
+}
+
+.flex-centrar-vert {
 	align-items: center;
 }
 
@@ -112,12 +116,36 @@ hr {
 	text-align: right;
 }
 
+.fondo {
+	background-color: cadetblue;
+}
+
 .fondo-suave {
 	background-color: var(--color-botones);
 }
 
 .fondo-error {
 	background-color: orangered;
+}
+
+.fondo-warning {
+	background-color: yellow;
+}
+
+.color-error {
+	color: orangered;
+}
+
+.color-warning {
+	color: yellow;
+}
+
+.color-focus {
+	color: var(--color-focus);
+}
+
+.color-a-botones {
+	color: var(--color-a-botones);
 }
 
 .borde {
@@ -134,6 +162,18 @@ hr {
 
 .borde-b {
 	border-bottom: 2px solid var(--color-a-botones);
+}
+
+.scroll-auto {
+	overflow: auto;
+}
+
+.alto-max-100 {
+	max-height: 100%;
+}
+
+.ancho-10 {
+	width: 10%;
 }
 
 .ancho-15 {
@@ -172,6 +212,10 @@ hr {
 	width: 80%;
 }
 
+.ancho-90 {
+	width: 90%;
+}
+
 .ancho-100 {
 	width: 100%;
 }
@@ -182,6 +226,10 @@ hr {
 
 .ancho-max-90 {
 	max-width: 90%;
+}
+
+.padding-03 {
+	padding: 0.3rem;
 }
 
 .padding-05 {
@@ -212,6 +260,14 @@ hr {
 .padding-hor-1 {
 	padding-left: 1rem;
 	padding-right: 1rem;
+}
+
+.padding-der-05 {
+	padding-right: 0.5rem;
+}
+
+.padding-izq-05 {
+	padding-left: 0.5rem;
 }
 
 .margen-1 {
@@ -369,10 +425,14 @@ div.modal-contenido {
 
 /* The Modal Close Button */
 .close-modal {
+	position: absolute;
+	right: 1.5rem;
+	top: 1.5rem;
 	color: var(--color-a-botones);
 	font-size: 2rem;
 	font-weight: bold;
 	cursor: pointer;
+	z-index: 1;
 }
 
 .close-modal:hover,
@@ -509,6 +569,10 @@ div p.producto {
 	z-index: 2;
 }
 
+.bloque-linea {
+	display: inline-block;
+}
+
 .bloque {
 	display: block;
 }
@@ -554,11 +618,6 @@ input[type="button"].limpiar-nombre {
 	div img {
 		width: 150px;
 		height: auto;
-	}
-
-	div.modal-busqueda-contenido {
-		width: 80%;
-		/* transform: translate(-50%, -50%	); */
 	}
 
 	.txt-medio {
