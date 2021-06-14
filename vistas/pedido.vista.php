@@ -31,7 +31,7 @@
 		<div class="flex-container margen-05 fondo-suave centrar-elem flex-centrar padding-05 borde borde-rad-05">
 			<p class="padding-05 txt-medio">Nombre para el plato: </p>
 			<div class="flex-container limpiar-texto">
-				<input class="borde borde-rad-05 limpiar" type="text" name="iNombrePlato" id="iNombre-plato" autocomplete="off">
+				<input class="borde borde-rad-05 txt-medio limpiar" type="text" name="iNombrePlato" id="iNombre-plato" autocomplete="off">
 				<i class="fa fa-times" aria-hidden="true" onclick="javascript:limpiar('iNombre-plato')"></i>
 			</div>
 		</div>
@@ -41,19 +41,17 @@
 
 			<!-- botones de acciones -->
 			<div class="btn-acciones">
-				<div class="flex-container centrar-elem">
-					<div class="centrar-elem _ancho-50 number-input txt-centro">
-						<label class="txt-medio txt-centro" for="cantidad"
-							>Cant.
-						</label>
+				<div class="flex-container centrar-elem margen-b-05">
+					<div class="ancho-100 txt-centro">
+						<label class="ancho-100 txt-big txt-centro padding-03" for="cantidad">Cantidad</label>
 					</div>
-					<div class="ancho-66 number-input">
-						<button id="cantidadPlus" class="txt-medio">
+					<div class="ancho-100 number-input">
+						<button id="cantidadPlus" class="txt-big">
 							&plus;
 						</button>
 						<input
 							id="cantidad"
-							class="txt-centro"
+							class="txt-centro txt-medio"
 							type="number"
 							name="cantidad"
 							min="1"
@@ -61,7 +59,7 @@
 							max="99"
 							value="1"
 						/>
-						<button id="cantidadMinus" class="txt-medio txt-centro">
+						<button id="cantidadMinus" class="txt-big">
 							&minus;
 						</button>
 					</div>

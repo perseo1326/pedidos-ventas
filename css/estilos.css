@@ -664,32 +664,37 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .number-input {
 	display: inline-flex;
-	margin-bottom: 1rem;
+	/* margin-bottom: 1rem; */
 }
 
 .number-input button:first-child {
 	border-bottom-left-radius: 0.5rem;
 	border-top-left-radius: 0.5rem;
 	border-right: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 .number-input button:last-child {
 	border-bottom-right-radius: 0.5rem;
 	border-top-right-radius: 0.5rem;
 	border-left: none;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
 }
 
 .number-input button {
 	outline: none;
 	position: relative;
-	background-color: var(--color-botones);
+	/* background-color: var(--color-botones); */
+	/* background-color: red; */
 	width: 33%;
 	margin: 0px;
 	padding: 0;
 	cursor: pointer;
 	/* cuidado: si se retira se pierde el borde del elemento, 
   revisar -> button:last-first-child */
-	border: 2px solid var(--color-a-botones);
+	/* border: 2px solid var(--color-a-botones) !important; */
 }
 
 .number-input button:active {
@@ -702,7 +707,7 @@ input[type="number"]::-webkit-outer-spin-button {
 	width: 34%;
 	min-width: 2rem;
 	margin: 0;
-	padding: 0.5rem 0;
+	/* padding: 0.5rem 0; */
 	border: 2px solid var(--color-a-botones);
 	font-weight: bolder;
 }
