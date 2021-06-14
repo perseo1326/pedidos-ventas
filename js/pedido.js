@@ -112,7 +112,7 @@ var cbBola = 	panelSabores[4].getElementsByTagName("input")[0];
 var cbCamaron = panelSabores[5].getElementsByTagName("input")[0];
 var cbFfrijol = panelSabores[6].getElementsByTagName("input")[0];
 var cbAzucar = 	panelSabores[7].getElementsByTagName("input")[0];
-var cbManual = 	panelSabores[8].getElementsByTagName("input")[0];
+// var cbManual = 	panelSabores[8].getElementsByTagName("input")[0];
 // *************************************************************
 
 var iNombrePlato = 	document.getElementById("iNombre-plato");
@@ -236,7 +236,7 @@ function limpiarSabores() {
 	cbCamaron.checked = false;
 	cbFfrijol.checked = false;
 	cbAzucar.checked = false;
-	cbManual.checked = false;
+	// cbManual.checked = false;
 	iCantidad.value = 1;
 }
 
@@ -581,6 +581,7 @@ function validarSaboresDDBB(arraySabores) {
 
 // *************************************************************
 // boton "configuracion MANUAL"
+/*
 cbManual.onclick = function () {
 	if (cbManual.checked) {
 		// mostrarModal();
@@ -593,6 +594,7 @@ cbManual.onclick = function () {
 		}
 	};
 }
+*/
 
 // *************************************************************
 // indica la pagina de destino seleccionada por el usuario y
