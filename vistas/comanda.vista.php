@@ -99,7 +99,7 @@
     $printer -> text($texto);
     
     // estado del pago
-    $texto = $estadoPagado . "\n";
+    $texto = $estadoPagado . " ($" . $detallePedido->getTotal() . ")\n";
     $printer -> setJustification($justification[2]);
     $printer -> selectPrintMode(48);
     $printer -> setUnderline(2);
