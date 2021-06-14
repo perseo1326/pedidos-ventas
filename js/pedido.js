@@ -517,13 +517,27 @@ function esconderMenuPlato() {
 }
 
 // *************************************************************
+// funcion para revisar el estado (ABIERTO_CERRADO) del plato previo a uno eliminado
+function revisarEstado(platoId) {
+	if (platoId > 0) {
+		if (pedido[platoId].cantTotal < 3 && pedido[platoId].status == status.CERRADO) {
+			pedido[platoId].status = status.ABIERTO;
+		}
+		// console.log(pedido[platoId]);
+	}
+} 
+
+// *************************************************************
 function eliminarPlato(platoId) {
 	platoId = Number(platoId);
-	// console.log(pedido[platoId]);
+	console.log(platoId);
 	const borrado = pedido.splice(platoId,1);
 	if (borrado === null) {
-		console.log("hubo un problema al eliminar el plato???");
+		console.log("hubo un problema al eliminar el plato!!!");
+		alert("hubo un problema al eliminar el plato!!!");
 	}
+	//revisar el estado del plato anterior y abrirlo si es necesario
+	revisarEstado(platoId - 1);
 	esconderMenuPlato();
 	refrescarListaPedido(pedido, "pedidoLista", true);
 }
