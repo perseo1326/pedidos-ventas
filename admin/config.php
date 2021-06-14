@@ -70,7 +70,11 @@ const PRINTER_PORT      = "9100";
 
 const TODO = "TODO";
 const NADA = 'NADA';
-const TOPPINGS = ['FRIJOLTOP' => 'FRIJOL', 'VERDURA' => 'REPOLLO', 'QRAYADO' => 'qRAYADO', 'CEBOLLA' => 'CEBOLLA', 'TOMATE' => 'TOMATE'];
+const TOPPINGS = ['FRIJOLTOP' => 'FRIJOL', 
+                    'VERDURA' => 'REPOLLO', 
+                    'QRALLADO' => 'qRALLADO', 
+                    'CEBOLLA' => 'CEBOLLA', 
+                    'TOMATE' => 'TOMATE' ];
 
 // MODULO DE BUSQUEDA
 

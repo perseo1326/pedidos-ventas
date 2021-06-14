@@ -13,7 +13,7 @@ class Producto {
 		this.saborTexto = [];
 		this.frijolTop = false;
 		this.verdura = false;
-		this.qRayado = false;
+		this.qRallado = false;
 		this.cebolla = false;
 		this.tomate = false;
 }
@@ -26,7 +26,7 @@ class Producto {
 		this.saborTexto = producto.saborTexto;
 		this.frijolTop = producto.frijolTop;
 		this.verdura = producto.verdura;
-		this.qRayado = producto.qRayado;
+		this.qRallado = producto.qRallado;
 		this.cebolla = producto.cebolla;
 		this.tomate = producto.tomate;
 	}
@@ -41,7 +41,7 @@ class Producto {
 	setProdToppings(frij, verd, qRay, cebo, toma) {
 		this.frijolTop = frij;
 		this.verdura = verd;
-		this.qRayado = qRay;
+		this.qRallado = qRay;
 		this.cebolla = cebo;
 		this.tomate = toma;
 	}
@@ -50,7 +50,7 @@ class Producto {
 		let top = {};
 		top.frijolTop = this.frijolTop;
 		top.verdura = this.verdura;
-		top.qRayado = this.qRayado;
+		top.qRallado = this.qRallado;
 		top.cebolla = this.cebolla;
 		top.tomate = this.tomate;
 		return	top;
@@ -198,7 +198,7 @@ var sabores = [];
 var toppings = {
 	frijolTop: false, 
 	verdura: false, 
-	qRayado: false,
+	qRallado: false,
 	cebolla: false,
 	tomate: false
 }
@@ -428,8 +428,8 @@ function toppingTodoNada (valor) {
 		frijolModal.classList.add("top-si");
 		verduraModal.classList.remove("top-no");
 		verduraModal.classList.add("top-si");
-		qRayadoModal.classList.remove("top-no");
-		qRayadoModal.classList.add("top-si");
+		QRALLADOModal.classList.remove("top-no");
+		QRALLADOModal.classList.add("top-si");
 		cebollaModal.classList.remove("top-no");
 		cebollaModal.classList.add("top-si");
 		tomateModal.classList.remove("top-no");
@@ -439,8 +439,8 @@ function toppingTodoNada (valor) {
 		frijolModal.classList.add("top-no");
 		verduraModal.classList.remove("top-si");
 		verduraModal.classList.add("top-no");
-		qRayadoModal.classList.remove("top-si");
-		qRayadoModal.classList.add("top-no");
+		QRALLADOModal.classList.remove("top-si");
+		QRALLADOModal.classList.add("top-no");
 		cebollaModal.classList.remove("top-si");
 		cebollaModal.classList.add("top-no");
 		tomateModal.classList.remove("top-si");
@@ -475,7 +475,7 @@ function editarToppings(idElemHtml) {
 				<p id="todoModal" onclick="javascript:toppingTodoNada(true)" class="toppings top-neutral">TODO</p> \
 				<p id="frijolModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.frijolTop) + '">' + kTop.frijolTop + '</p> \
 				<p id="verduraModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.verdura) + '">' + kTop.verdura + '</p> \
-				<p id="qRayadoModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.qRayado) + '">' + kTop.qRayado + '</p> \
+				<p id="QRALLADOModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.qRallado) + '">' + kTop.qRallado + '</p> \
 				<p id="cebollaModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.cebolla) + '">' + kTop.cebolla + '</p> \
 				<p id="tomateModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.tomate) + '">' + kTop.tomate + '</p> \
 				<p id="nadaModal" onclick="javascript:toppingTodoNada(false)" class="toppings top-neutral">NADA</p> \

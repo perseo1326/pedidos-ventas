@@ -9,7 +9,7 @@ const DESTINO_PAGAR = "PAGAR_PAG";
 const kTop = {
 	frijolTop: "Frijol",
 	verdura: "Verdura",
-	qRayado: "Q. Rayado",
+	qRallado: "Q. Rayado",
 	cebolla: "Cebolla",
 	tomate: "Tomate",
 	todo: "TODO",
@@ -138,7 +138,7 @@ function dibujarToppings(producto) {
 	if (
 		producto.frijolTop &&
 		producto.verdura &&
-		producto.qRayado &&
+		producto.qRallado &&
 		producto.cebolla &&
 		producto.tomate
 	) {
@@ -147,7 +147,7 @@ function dibujarToppings(producto) {
 	} else if (
 		!producto.frijolTop &&
 		!producto.verdura &&
-		!producto.qRayado &&
+		!producto.qRallado &&
 		!producto.cebolla &&
 		!producto.tomate
 	) {
@@ -160,8 +160,8 @@ function dibujarToppings(producto) {
 			'<p class="toppings top-' + clase + '">' + kTop.frijolTop + "</p>";
 		clase = producto.verdura ? "si" : "no";
 		top += '<p class="toppings top-' + clase + '">' + kTop.verdura + "</p>";
-		clase = producto.qRayado ? "si" : "no";
-		top += '<p class="toppings top-' + clase + '">' + kTop.qRayado + "</p>";
+		clase = producto.qRallado ? "si" : "no";
+		top += '<p class="toppings top-' + clase + '">' + kTop.qRallado + "</p>";
 		clase = producto.cebolla ? "si" : "no";
 		top += '<p class="toppings top-' + clase + '">' + kTop.cebolla + "</p>";
 		clase = producto.tomate ? "si" : "no";

@@ -2,10 +2,10 @@
 <body>
 	<div class="flex-container centrar-elem ">
 		<div class="">
-			<!-- <a href="../controladores/comanda.controlador.php"> -->
-			<a href="../controladores/imprimir_comanda.controlador.php">
+			<!-- <a href="../controladores/imprimir_comanda.controlador.php"> -->
+			<!-- <a href="../controladores/comanda_conexion.controlador.php"> -->
 				<img id="imgBienvenida" src="../images/doll.png" srcset="../images/doll.svg" alt="Anca la Yola muñeca"/>
-			</a>
+			<!-- </a> -->
 		</div>
 
 		<div class="">

@@ -144,18 +144,20 @@
         if ($tops === TODO) {
             $toppings = "";
         } else if($tops === NADA) {
-            $toppings = "<li>NADA</li>";
+            // $toppings = "<li>NADA</li>";
         } else if(is_array($tops)) {
             if ($tops[0] === true) {
                 foreach ($tops as $key => $t) {
                     if ($key > 0) {
-                        $toppings = ($toppings . "<li class=''>CON_" . $t . "</li>");
+                        // $toppings = ($toppings . "<li class=''>CON_" . $t . "</li>");
+                        $toppings = ($toppings . " SOLO_" . $t );
                     }
                 }
             } else {
                 foreach ($tops as $key => $t) {
                     if ($key > 0) {
-                        $toppings = ($toppings . "<li class='sin'>" . $t . "</li>");
+                        // $toppings = ($toppings . "<li class='sin'>" . $t . "</li>");
+                        $toppings = ($toppings . " SIN_" . $t );
                     }
                 }
             }

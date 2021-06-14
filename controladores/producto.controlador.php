@@ -13,7 +13,7 @@ class Producto_Controlador {
 	protected $saborTexto;
 	protected $frijolTop;
 	protected $verdura;
-	protected $qRayado;
+	protected $qRallado;
 	protected $cebolla;
 	protected $tomate;
 
@@ -27,7 +27,7 @@ class Producto_Controlador {
 		$this->saborTexto = array();
 		$this->frijolTop = false;
 		$this->verdura = false;
-		$this->qRayado = false;
+		$this->qRallado = false;
 		$this->cebolla = false;
 		$this->tomate = false;
 	}
@@ -42,7 +42,7 @@ class Producto_Controlador {
 		$this->saborTexto = $producto->saborTexto;
 		$this->frijolTop = $producto->frijolTop;
 		$this->verdura = $producto->verdura;
-		$this->qRayado = $producto->qRayado;
+		$this->qRallado = $producto->qRallado;
 		$this->cebolla = $producto->cebolla;
 		$this->tomate = $producto->tomate;
 	}
@@ -110,7 +110,7 @@ class Producto_Controlador {
 		$objeto->saborTexto = $this->saborTexto;
 		$objeto->frijolTop = $this->frijolTop;
 		$objeto->verdura = $this->verdura;
-		$objeto->qRayado = $this->qRayado;
+		$objeto->qRallado = $this->qRallado;
 		$objeto->cebolla = $this->cebolla;
 		$objeto->tomate = $this->tomate;
 		return $objeto;
@@ -121,16 +121,16 @@ class Producto_Controlador {
 		$tops = null;
 		$con = [];
 		$sin = array();
-		if ($this->frijolTop && $this->verdura && $this->qRayado && $this->cebolla && $this->tomate) {
-			$tops = "TODO";
-		} else if (!$this->frijolTop && !$this->verdura && !$this->qRayado && !$this->cebolla && !$this->tomate) {
-			$tops = "NADA";
+		if ($this->frijolTop && $this->verdura && $this->qRallado && $this->cebolla && $this->tomate) {
+			$tops = TODO;  // TODO -> Todos los toppings
+		} else if (!$this->frijolTop && !$this->verdura && !$this->qRallado && !$this->cebolla && !$this->tomate) {
+			$tops = NADA; // NADA -> ningun topping
 		} else {
 			array_push($con, true);
 			array_push($sin, false);
 			$this->frijolTop ?	array_push($con, TOPPINGS['FRIJOLTOP'])	: array_push($sin, TOPPINGS['FRIJOLTOP']);
 			$this->verdura ? 	array_push($con, TOPPINGS['VERDURA'])	: array_push($sin, TOPPINGS['VERDURA']);
-			$this->qRayado ? 	array_push($con, TOPPINGS['QRAYADO']) 	: array_push($sin, TOPPINGS['QRAYADO']);
+			$this->qRallado ? 	array_push($con, TOPPINGS['QRALLADO']) 	: array_push($sin, TOPPINGS['QRALLADO']);
 			$this->cebolla ? 	array_push($con, TOPPINGS['CEBOLLA']) 	: array_push($sin, TOPPINGS['CEBOLLA']);
 			$this->tomate ? 	array_push($con, TOPPINGS['TOMATE']) 	: array_push($sin, TOPPINGS['TOMATE']);
 
