@@ -111,19 +111,8 @@
 			</form>
 		</div>
 
-		<!-- modal para seleccionar los TOPPINGS -->
-		<div id="modal-toppings" class="modal">
-			<div class="flex-container ancho-100 padding-1 borde-rad-1 modal-contenido centrar-elem">
-                <div id="plato" class="ancho-100 margen-b-05 plato">
-				</div>
-				<input
-				id="modalToppingsClose"
-				class="btn-inicio txt-medio"
-				type="button"
-				value="Regresar"
-				/>
-			</div>
-		</div>
+		<!-- modal para EDICION del plato -->
+		<?php require_once "modalEdicion.vista.php"; ?>
 
 	<script>
 		<?php
@@ -131,4 +120,5 @@
 		?>
 	</script>
 
+	<script src="../js/clases.js"></script>
 	<script src="../js/pedido.js"></script>

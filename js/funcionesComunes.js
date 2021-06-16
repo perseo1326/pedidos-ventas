@@ -16,7 +16,6 @@ const kTop = {
 	nada: "NATURAL",
 };
 
-
 var patronNumerico = /[0-9.]/;
 
 // *************************************************************
@@ -37,6 +36,7 @@ function filtrarCaracteres(evento) {
 function mostrarModal(id) {
 	modal = document.getElementById(id);
 	modal.style.display = "block";
+	console.log("mostrar modal id: " + id);
 }
 
 // *************************************************************
@@ -58,7 +58,7 @@ function limpiar(id) {
 
 // *************************************************************
 //funcion para dibujar un "plato" en la seccion del pedido
-function prepararDibujarPlato(indice, pedidoCopia, editarPlato) {
+function prepararDibujarPlato( indice, pedidoCopia, editarPlato) {
 	indice = Number(indice);
 	let name = pedidoCopia[indice].nombrePlato.toUpperCase();
 	if (name != "") {
@@ -69,7 +69,7 @@ function prepararDibujarPlato(indice, pedidoCopia, editarPlato) {
     <div id="pl-' +	indice + '" class="ancho-100 margen-b-05 plato sombra-x"> ';
 	if(editarPlato) {
         platoHTML += '<div class=" edicion clearfix"> \
-				<span class="bloque" onclick="javascript:dibujarEditarPlato(\'menuEditarPlato-' + indice + '\')"><i id="editarPlato-' + indice + '" class="fa fa-pen-square txt-medio"></i></span> \
+				<span class="bloque" onclick="javascript:modalEditarPlato(' + indice + ')"><i id="editarPlato-' + indice + '" class="fa fa-pen-square txt-medio"></i></span> \
 			</div> ';
 	}
 	platoHTML +=	'<div class="menuEditarPlato no-visible" id="menuEditarPlato-' + indice + '" oncontextmenu="return false;"> \
@@ -85,6 +85,87 @@ function prepararDibujarPlato(indice, pedidoCopia, editarPlato) {
         </div> \
     </div> ';
 	return platoHTML;
+}
+
+// *************************************************************
+// funcion para dibujar el numero del plato y su nombre
+function modalEditarPlatoNombre(name, platoId) {
+	name = "<span class='txt-medio'> \
+				<input id='iModalEdicionNombre' class='borde borde-rad-05 txt-medio' type='text' value='" + name + "'/> \
+			</span>";
+	
+	let insertarHTML = "<div> \
+			<h2 class='txt-medio'>Plato No. " + (Number(platoId) + 1) + name + "</h2> \
+		</div> ";
+	return insertarHTML;
+}
+
+// *************************************************************
+// funcion para dibujar un elemento de un producto para el modalEdicion 
+function modalEditarElemento(elemento, elemId) {
+	let insertarHTML2 = '<div id="elemento-' + elemId + '" class="flex-container flex-baseline"> \
+			<p class="producto txt-medio">' + elemento.cantidad + ' - ' + elemento.producto.descripcion + '</p>';
+	return insertarHTML2;
+}
+
+// *************************************************************
+// funcion para mostrar los toppings y editarlos
+function ModalEditarToppings(toppings) {
+	
+	insertarHTML =	'<div id="' + 100 + '" class="flex-container centrar-elem margen-b-05"> \
+				<p id="todoModal" onclick="javascript:toppingTodoNada(true)" class="toppings top-neutral">TODO</p> \
+				<p id="frijolModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.frijolTop) + '">' + kTop.frijolTop + '</p> \
+				<p id="verduraModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.verdura) + '">' + kTop.verdura + '</p> \
+				<p id="QRALLADOModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.qRallado) + '">' + kTop.qRallado + '</p> \
+				<p id="cebollaModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.cebolla) + '">' + kTop.cebolla + '</p> \
+				<p id="tomateModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.tomate) + '">' + kTop.tomate + '</p> \
+				<p id="nadaModal" onclick="javascript:toppingTodoNada(false)" class="toppings top-neutral">NADA</p> \
+				</div> ';
+	return insertarHTML;
+}
+
+// *************************************************************
+// funcion para EDITAR PLATO
+function modalEditarPlato(platoId) {
+
+	// limpiar el modal
+	limpiarHijosHTML("platoEdicion");
+	const modalEdicion = document.getElementById("platoEdicion");
+	modalEdicion.id = platoId;
+	let insertarHTML = "";
+
+	let plato = new Plato(pedido[platoId].cantTotal, pedido[platoId].elementos, pedido[platoId].status, pedido[platoId].nombrePlato);
+	console.log("plato detalle:");
+	console.log(plato); 
+
+	// Escribir el # de plato en un div
+	insertarHTML = modalEditarPlatoNombre(plato.nombrePlato, platoId);
+	modalEdicion.insertAdjacentHTML("beforeend", insertarHTML);
+	
+	// Dibujar los elementos del plato
+	insertarHTML = "";
+	for (let i = 0; i < plato.elementos.length; i++) {
+		const element = plato.elementos[i];
+		toppings = element.producto.getProdtoppings();
+
+		insertarHTML = modalEditarElemento(element, i);
+		modalEdicion.insertAdjacentHTML("beforeend", insertarHTML);
+		insertarHTML = ModalEditarToppings(toppings);
+		modalEdicion.insertAdjacentHTML("beforeend", insertarHTML);
+	}
+
+
+	
+	// inicializar la variable "toppings" con los toppings del elemento
+	// toppings = plato.elementos[0].producto.getProdtoppings();
+
+	// console.log(toppings);
+
+	// modalEdicion.insertAdjacentHTML("beforeend", insertarHTML);
+	
+	
+	
+	mostrarModal("modalEdicion");	
 }
 
 // *************************************************************
