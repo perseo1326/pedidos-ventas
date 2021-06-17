@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`tipo_usuario` (
   `tipousuario_notas` VARCHAR(1000) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
   `tipousuario_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   PRIMARY KEY (`tipousuario_id`),
-  UNIQUE INDEX `tipousuario_codigo` (`tipousuario_codigo` ASC) VISIBLE,
-  UNIQUE INDEX `tipousuario_id` (`tipousuario_id` ASC) VISIBLE)
+  UNIQUE INDEX `tipousuario_codigo` (`tipousuario_codigo` ASC) ,
+  UNIQUE INDEX `tipousuario_id` (`tipousuario_id` ASC) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci
@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`usuarios` (
   `usuarios_status` CHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   `usuarios_tipousuario_id` INT NOT NULL,
   PRIMARY KEY (`usuarios_id`),
-  UNIQUE INDEX `usuarios_id` (`usuarios_id` ASC) VISIBLE,
-  UNIQUE INDEX `usuarios_nombre` (`usuarios_nombre` ASC) VISIBLE,
-  INDEX `FK_usuarios_tipousuario` (`usuarios_tipousuario_id` ASC) VISIBLE,
+  UNIQUE INDEX `usuarios_id` (`usuarios_id` ASC) ,
+  UNIQUE INDEX `usuarios_nombre` (`usuarios_nombre` ASC) ,
+  INDEX `FK_usuarios_tipousuario` (`usuarios_tipousuario_id` ASC) ,
   CONSTRAINT `FK_usuarios_tipousuario`
     FOREIGN KEY (`usuarios_tipousuario_id`)
     REFERENCES `ancalayola`.`tipo_usuario` (`tipousuario_id`))
@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`Pedidos` (
   `pedidos_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `pedidos_numPedido` INT UNSIGNED NOT NULL,
   `pedidos_nombre` VARCHAR(50) NOT NULL,
-  `pedidos_fCreacion` DATETIME NOT NULL DEFAULT 1000-01-01 00:00:00.000000,
-  `pedidos_fModificacion` DATETIME NOT NULL DEFAULT 1000-01-01 00:00:00.000000,
+  `pedidos_fCreacion` DATETIME NOT NULL DEFAULT '1000-01-01 00:00:00.000000',
+  `pedidos_fModificacion` DATETIME NOT NULL DEFAULT '1000-01-01 00:00:00.000000',
   `pedidos_tipo` ENUM('-', 'AQUI', 'HABLO') NOT NULL COMMENT 'tipo de pedido, si el pedido fue realizado por TELEFONO o PRESENCIAL (aqui)',
   `pedidos_numTelefono` VARCHAR(15) NULL DEFAULT NULL COMMENT 'numero de telefono en caso de haber realizado el pedido por TELEFONO.',
   `pedidos_estado` ENUM('CREACION', 'PEDIDO', 'PREPARACION', 'TERMINADO', 'ENTREGADO') NOT NULL COMMENT 'define el estado actual del pedido, EN PREPARACION, TERMINADO Y ENTREGADO.',
@@ -82,9 +82,9 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`Pedidos` (
   `pedidos_ordenJSON` JSON NULL COMMENT 'formato JSON del pedido.',
   `pedidos_usuarioId` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`pedidos_id`),
-  UNIQUE INDEX `pedidos_id_UNIQUE` (`pedidos_id` ASC) VISIBLE,
-  UNIQUE INDEX `pedidos_numPedido_UNIQUE` (`pedidos_numPedido` ASC) VISIBLE,
-  INDEX `FK_pedidos_usuarios_idx` (`pedidos_usuarioId` ASC) VISIBLE,
+  UNIQUE INDEX `pedidos_id_UNIQUE` (`pedidos_id` ASC) ,
+  UNIQUE INDEX `pedidos_numPedido_UNIQUE` (`pedidos_numPedido` ASC) ,
+  INDEX `FK_pedidos_usuarios_idx` (`pedidos_usuarioId` ASC) ,
   CONSTRAINT `FK_pedidos_usuarios`
     FOREIGN KEY (`pedidos_usuarioId`)
     REFERENCES `ancalayola`.`usuarios` (`usuarios_id`))
@@ -107,8 +107,8 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`categorias` (
   `cat_nivel` TINYINT NOT NULL DEFAULT '0',
   `cat_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   PRIMARY KEY USING BTREE (`cat_id`),
-  UNIQUE INDEX `cat_id` (`cat_id` ASC) VISIBLE,
-  UNIQUE INDEX `cat_codigo` (`cat_codigo` ASC) VISIBLE)
+  UNIQUE INDEX `cat_id` (`cat_id` ASC) ,
+  UNIQUE INDEX `cat_codigo` (`cat_codigo` ASC) )
 ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
@@ -128,8 +128,8 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`presentacion` (
   `presentacion_descripcion` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
   `presentacion_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NULL DEFAULT 'A',
   PRIMARY KEY (`presentacion_id`),
-  UNIQUE INDEX `presentacion_id` (`presentacion_id` ASC) VISIBLE,
-  UNIQUE INDEX `presentacion_codigo` (`presentacion_codigo` ASC) VISIBLE)
+  UNIQUE INDEX `presentacion_id` (`presentacion_id` ASC) ,
+  UNIQUE INDEX `presentacion_codigo` (`presentacion_codigo` ASC) )
 ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
@@ -152,9 +152,9 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`ingredientes` (
   `ingred_imagen` VARCHAR(255) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NULL DEFAULT NULL,
   `ingred_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   PRIMARY KEY (`ingred_id`),
-  UNIQUE INDEX `ingred_id` (`ingred_id` ASC) VISIBLE,
-  UNIQUE INDEX `ingred_codigo` (`ingred_codigo` ASC) VISIBLE,
-  INDEX `FK_ingredientes_presentacion` (`ingred_presentacion` ASC) VISIBLE,
+  UNIQUE INDEX `ingred_id` (`ingred_id` ASC) ,
+  UNIQUE INDEX `ingred_codigo` (`ingred_codigo` ASC) ,
+  INDEX `FK_ingredientes_presentacion` (`ingred_presentacion` ASC) ,
   CONSTRAINT `FK_ingredientes_presentacion`
     FOREIGN KEY (`ingred_presentacion`)
     REFERENCES `ancalayola`.`presentacion` (`presentacion_id`))
@@ -184,13 +184,13 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`productos` (
   `prod_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   `prod_imagen` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NULL DEFAULT NULL,
   PRIMARY KEY USING BTREE (`prod_id`),
-  UNIQUE INDEX `prod_codigo` (`prod_codigo` ASC) VISIBLE,
-  UNIQUE INDEX `prod_id` (`prod_id` ASC) VISIBLE,
-  INDEX `FK_productos_categorias` USING BTREE (`prod_categoria`) VISIBLE,
-  INDEX `FK_productos_presentacion` USING BTREE (`prod_presentacion`) VISIBLE,
-  INDEX `FK_productos_ingredientes_1` (`prod_ingrediente1` ASC) VISIBLE,
-  INDEX `FK_productos_ingredientes_2` (`prod_ingrediente2` ASC) VISIBLE,
-  INDEX `FK_productos_ingredientes_3` (`prod_ingrediente3` ASC) VISIBLE,
+  UNIQUE INDEX `prod_codigo` (`prod_codigo` ASC) ,
+  UNIQUE INDEX `prod_id` (`prod_id` ASC) ,
+  INDEX `FK_productos_categorias` USING BTREE (`prod_categoria`) ,
+  INDEX `FK_productos_presentacion` USING BTREE (`prod_presentacion`) ,
+  INDEX `FK_productos_ingredientes_1` (`prod_ingrediente1` ASC) ,
+  INDEX `FK_productos_ingredientes_2` (`prod_ingrediente2` ASC) ,
+  INDEX `FK_productos_ingredientes_3` (`prod_ingrediente3` ASC) ,
   CONSTRAINT `FK_productos_categorias`
     FOREIGN KEY (`prod_categoria`)
     REFERENCES `ancalayola`.`categorias` (`cat_id`),
@@ -223,9 +223,9 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`DetallePedido` (
   `detallePedido_cantidad` TINYINT NOT NULL,
   `detallePedido_ProductoId` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`detallePedido_id`),
-  UNIQUE INDEX `detalle_Pedido_pedido_id_UNIQUE` (`detallePedido_PedidoNum` ASC) VISIBLE,
-  INDEX `IDX_numPedido` (`detallePedido_PedidoNum` ASC) VISIBLE,
-  INDEX `IDX_Producto` (`detallePedido_ProductoId` ASC) VISIBLE,
+  UNIQUE INDEX `detalle_Pedido_pedido_id_UNIQUE` (`detallePedido_PedidoNum` ASC) ,
+  INDEX `IDX_numPedido` (`detallePedido_PedidoNum` ASC) ,
+  INDEX `IDX_Producto` (`detallePedido_ProductoId` ASC) ,
   CONSTRAINT `FK_DetallePedido_Pedidos`
     FOREIGN KEY (`detallePedido_PedidoNum`)
     REFERENCES `ancalayola`.`Pedidos` (`pedidos_id`),
