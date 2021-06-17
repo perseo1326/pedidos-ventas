@@ -72,7 +72,7 @@
                 $_SESSION['numUltimoPedido'] = (int) $confirmarPedido_mdl->showNumPedido(); 
 
                 // creacion de la COMANDA
-                require_once "comanda.controlador.php";
+                // require_once "comanda.controlador.php";
                 // actualizar ddbb con el estado del pedido a en "PREPARACION"
                 $confirmarPedido_mdl->setEstadoPedido(ESTADO_PEDIDO['PREPARACION']);
                 if ($confirmarPedido_mdl->actualizarEstadoPedido() !== 1) {
