@@ -1,3 +1,4 @@
+SET  SQL_SAFE_UPDATES = 0;
 
 -- ASEGURAR QUE SE USA LA BASE DE DATOS CORRECTA 
 USE `ancalayola`;
@@ -18,3 +19,4 @@ INSERT INTO usuarios (usuarios_nombre, usuarios_descripcion, usuarios_status, us
 VALUES 
   ('JWSK', '', 'A', 1);
 
+SET  SQL_SAFE_UPDATES = 1;

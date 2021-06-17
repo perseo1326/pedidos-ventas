@@ -12,7 +12,7 @@ DROP SCHEMA IF EXISTS `ancalayola` ;
 -- -----------------------------------------------------
 -- Schema ancalayola
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `ancalayola` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `ancalayola` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 USE `ancalayola` ;
 
 -- -----------------------------------------------------
@@ -22,16 +22,16 @@ DROP TABLE IF EXISTS `ancalayola`.`tipo_usuario` ;
 
 CREATE TABLE IF NOT EXISTS `ancalayola`.`tipo_usuario` (
   `tipousuario_id` INT NOT NULL AUTO_INCREMENT,
-  `tipousuario_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `tipousuario_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `tipousuario_notas` VARCHAR(1000) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `tipousuario_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL DEFAULT 'A',
+  `tipousuario_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `tipousuario_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `tipousuario_notas` VARCHAR(1000) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `tipousuario_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   PRIMARY KEY (`tipousuario_id`),
   UNIQUE INDEX `tipousuario_codigo` (`tipousuario_codigo` ASC) VISIBLE,
   UNIQUE INDEX `tipousuario_id` (`tipousuario_id` ASC) VISIBLE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci
+COLLATE = utf8mb4_general_ci
 COMMENT = 'Define los  tipos de usuarios en el sistema y los perfiles que van a poseer cada uno de ellos.';
 
 
@@ -42,9 +42,9 @@ DROP TABLE IF EXISTS `ancalayola`.`usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `ancalayola`.`usuarios` (
   `usuarios_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `usuarios_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL DEFAULT '',
-  `usuarios_descripcion` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT '0',
-  `usuarios_status` CHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL DEFAULT 'A',
+  `usuarios_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT '',
+  `usuarios_descripcion` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NULL DEFAULT '0',
+  `usuarios_status` CHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   `usuarios_tipousuario_id` INT NOT NULL,
   PRIMARY KEY (`usuarios_id`),
   UNIQUE INDEX `usuarios_id` (`usuarios_id` ASC) VISIBLE,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`usuarios` (
     REFERENCES `ancalayola`.`tipo_usuario` (`tipousuario_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci
+COLLATE = utf8mb4_general_ci
 COMMENT = 'contiene los diferentes usuarios del sistema, tanto los usuarios registrados (personas/perfiles) como los usuarios propios para funciones especiales del sistema.';
 
 
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`Pedidos` (
     REFERENCES `ancalayola`.`usuarios` (`usuarios_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -100,19 +100,19 @@ DROP TABLE IF EXISTS `ancalayola`.`categorias` ;
 
 CREATE TABLE IF NOT EXISTS `ancalayola`.`categorias` (
   `cat_id` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `cat_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `cat_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `cat_descripcion` VARCHAR(1000) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
+  `cat_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `cat_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `cat_descripcion` VARCHAR(1000) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
   `cat_padre` SMALLINT UNSIGNED NULL DEFAULT NULL,
   `cat_nivel` TINYINT NOT NULL DEFAULT '0',
-  `cat_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL DEFAULT 'A',
+  `cat_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   PRIMARY KEY USING BTREE (`cat_id`),
   UNIQUE INDEX `cat_id` (`cat_id` ASC) VISIBLE,
   UNIQUE INDEX `cat_codigo` (`cat_codigo` ASC) VISIBLE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci
+COLLATE = utf8mb4_general_ci
 COMMENT = 'En esta tabla se encontraran TODAS las categorias y subcategorias que se vayan creando.  Las categorias padres tendran en su campo \"cat_padre\" un null o 0 (cero) y las demas DEBERAN  tener una referencia a una categoria dentro de la misma tabla la cual será su categoria PADRE. Tambien hay un campo \"cat_nivel\" para indicar el nivel de profundidad de la categoria en cuestion, esto para facilitar la busqueda de categorias de bajos niveles en caso de ser necesario.';
 
 
@@ -123,17 +123,17 @@ DROP TABLE IF EXISTS `ancalayola`.`presentacion` ;
 
 CREATE TABLE IF NOT EXISTS `ancalayola`.`presentacion` (
   `presentacion_id` TINYINT NOT NULL AUTO_INCREMENT,
-  `presentacion_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `presentacion_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `presentacion_descripcion` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `presentacion_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT 'A',
+  `presentacion_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `presentacion_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `presentacion_descripcion` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `presentacion_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NULL DEFAULT 'A',
   PRIMARY KEY (`presentacion_id`),
   UNIQUE INDEX `presentacion_id` (`presentacion_id` ASC) VISIBLE,
   UNIQUE INDEX `presentacion_codigo` (`presentacion_codigo` ASC) VISIBLE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci
+COLLATE = utf8mb4_general_ci
 COMMENT = 'presentacion, unidad de medida o porcion para un producto determinado. en esta tabla se definen los tipos de medidas o porciones que seran usadas por los productos. Ej: litro (lt), medio litro (500ml), 355 ml, unidad, etc.';
 
 
@@ -144,13 +144,13 @@ DROP TABLE IF EXISTS `ancalayola`.`ingredientes` ;
 
 CREATE TABLE IF NOT EXISTS `ancalayola`.`ingredientes` (
   `ingred_id` SMALLINT NOT NULL AUTO_INCREMENT,
-  `ingred_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `ingred_tipo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL,
-  `ingred_ingrediente` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `ingred_descripcion` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
+  `ingred_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `ingred_tipo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NULL DEFAULT NULL,
+  `ingred_ingrediente` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `ingred_descripcion` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
   `ingred_presentacion` TINYINT NOT NULL,
-  `ingred_imagen` VARCHAR(255) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL,
-  `ingred_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL DEFAULT 'A',
+  `ingred_imagen` VARCHAR(255) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NULL DEFAULT NULL,
+  `ingred_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   PRIMARY KEY (`ingred_id`),
   UNIQUE INDEX `ingred_id` (`ingred_id` ASC) VISIBLE,
   UNIQUE INDEX `ingred_codigo` (`ingred_codigo` ASC) VISIBLE,
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`ingredientes` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci
+COLLATE = utf8mb4_general_ci
 COMMENT = 'listado de ingredientes usados para identificar un producto (panucho).';
 
 
@@ -172,8 +172,8 @@ DROP TABLE IF EXISTS `ancalayola`.`productos` ;
 
 CREATE TABLE IF NOT EXISTS `ancalayola`.`productos` (
   `prod_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `prod_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
-  `prod_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL,
+  `prod_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `prod_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
   `prod_categoria` SMALLINT UNSIGNED NOT NULL,
   `prod_creacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prod_precio` DECIMAL(10,2) NOT NULL DEFAULT '0.00',
@@ -181,8 +181,8 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`productos` (
   `prod_ingrediente1` SMALLINT NOT NULL DEFAULT '1',
   `prod_ingrediente2` SMALLINT NOT NULL DEFAULT '1',
   `prod_ingrediente3` SMALLINT NOT NULL DEFAULT '1',
-  `prod_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NOT NULL DEFAULT 'A',
-  `prod_imagen` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL,
+  `prod_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
+  `prod_imagen` VARCHAR(300) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NULL DEFAULT NULL,
   PRIMARY KEY USING BTREE (`prod_id`),
   UNIQUE INDEX `prod_codigo` (`prod_codigo` ASC) VISIBLE,
   UNIQUE INDEX `prod_id` (`prod_id` ASC) VISIBLE,
@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`productos` (
     REFERENCES `ancalayola`.`presentacion` (`presentacion_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -234,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`DetallePedido` (
     REFERENCES `ancalayola`.`productos` (`prod_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
