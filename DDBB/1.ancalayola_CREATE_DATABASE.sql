@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`tipo_usuario` (
   `tipousuario_id` INT NOT NULL AUTO_INCREMENT,
   `tipousuario_codigo` VARCHAR(20) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
   `tipousuario_nombre` VARCHAR(100) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
-  `tipousuario_notas` VARCHAR(1000) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL,
+  `tipousuario_notas` VARCHAR(1000) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' DEFAULT NULL,
   `tipousuario_status` VARCHAR(1) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci' NOT NULL DEFAULT 'A',
   PRIMARY KEY (`tipousuario_id`),
   UNIQUE INDEX `tipousuario_codigo` (`tipousuario_codigo` ASC) ,
