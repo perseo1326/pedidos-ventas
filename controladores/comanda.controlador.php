@@ -12,8 +12,10 @@ if ($numTel !== "") {
     $numTel = ' (' . $numTel . ')';
 }
 
-// require_once ("../vistas/plantilla.vista.php");
+// impresion de la comanda en IMPRESORA DE TICKETS
+// require_once "comanda_conexion.controlador.php";
 
-require_once "comanda_conexion.controlador.php";
+// impresion de la comanda en PANTALLA
+require_once "../vistas/comanda.vista(web).php";
 
 // require_once ("../vistas/fin_pagina.vista.php");

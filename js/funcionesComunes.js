@@ -58,32 +58,59 @@ function limpiar(id) {
 
 // *************************************************************
 //funcion para dibujar un "plato" en la seccion del pedido
-function prepararDibujarPlato( indice, pedidoCopia, editarPlato) {
+function prepararDibujarPlato( indice, plato, editarPlato) {
 	indice = Number(indice);
-	let name = pedidoCopia[indice].nombrePlato.toUpperCase();
+	if (indice == "NaN") {
+		console.log("ERROR! preparando el dibujado de los platos.");
+		return;
+	}
+
+	let name = plato.nombrePlato.toUpperCase();
 	if (name != "") {
+		// nombreHTML = document.createElement("span");
+		// nombreHTML.classList.add("txt-medio", "nombre");
+		// nombreHTML.createTextNode(" -- " + name + " -- ");
 		name = "<span class='txt-medio nombre'> -- " + name + " -- </span>";
 	}
 
-	let platoHTML = ' \
-    <div id="pl-' +	indice + '" class="ancho-100 margen-b-05 plato sombra-x"> ';
-	if(editarPlato) {
+	platoHTML = document.createElement("div");
+	platoHTML.id = "pl-" + indice;
+	platoHTML.classList.add("ancho-100", "margen-b-05", "plato", "sombra-x");
+
+	// let platoHTML = ' \
+	// <div id="pl-' +	indice + '" class="ancho-100 margen-b-05 plato sombra-x"> ';
+
+	// editar plato
+	// if(editarPlato) {
+	if(false) {
         platoHTML += '<div class=" edicion clearfix"> \
-				<span class="bloque" onclick="javascript:modalEditarPlato(' + indice + ')"><i id="editarPlato-' + indice + '" class="fa fa-pen-square txt-medio"></i></span> \
+				<span class="bloque" onclick="javascript:modalEditarPlato(' + indice + ')"><i class="fa fa-pen-square txt-medio"></i></span> \
 			</div> ';
 	}
-	platoHTML +=	'<div class="menuEditarPlato no-visible" id="menuEditarPlato-' + indice + '" oncontextmenu="return false;"> \
-			<h3 class="padding-05">Opciones de Plato</h3> \
-			<div> \
-				<span class="padding-hor-1 padding-05 bloque" onclick="javascript:editarPlato(' + indice + ')">Editar Plato...</span> \
-				<span class="padding-hor-1 padding-05 bloque" onclick="javascript:clonarPlato(' + indice + ')">Duplicar Plato</span> \
-				<span class="padding-hor-1 padding-05 bloque" onclick="javascript:eliminarPlato(' + indice + ')">Eliminar Plato</span> \
-			</div> \
-		</div> \
-		<div> \
-            <h2 class="txt-medio ">Plato No. ' + (indice + 1) + name + '</h2> \
-        </div> \
-    </div> ';
+
+	// platoHTML +=	'<div class="menuEditarPlato no-visible" id="menuEditarPlato-' + indice + '" oncontextmenu="return false;"> \
+	// 		<h3 class="padding-05">Opciones de Plato</h3> \
+	// 		<div> \
+	// 			<span class="padding-hor-1 padding-05 bloque" onclick="javascript:editarPlato(' + indice + ')">Editar Plato...</span> \
+	// 			<span class="padding-hor-1 padding-05 bloque" onclick="javascript:clonarPlato(' + indice + ')">Duplicar Plato</span> \
+	// 			<span class="padding-hor-1 padding-05 bloque" onclick="javascript:eliminarPlato(' + indice + ')">Eliminar Plato</span> \
+	// 		</div> \
+	// 	</div> \
+	
+	// Numero de plato y nombre de plato
+	// numeroNombrePlato = document.createElement("div");
+	titulo = document.createElement("h2");
+	titulo.classList.add("txt-medio");
+	tituloTXT = document .createTextNode("Plato No. " + (indice + 1) + name);
+	titulo.appendChild(tituloTXT);
+
+	platoHTML.appendChild(titulo);
+
+	// platoHTML += '\
+	// 	<div> \
+    //         <h2 class="txt-medio ">Plato No. ' + (indice + 1) + name + '</h2> \
+    //     </div> \
+    // </div> ';
 	return platoHTML;
 }
 
@@ -103,16 +130,17 @@ function modalEditarPlatoNombre(name, platoId) {
 // *************************************************************
 // funcion para dibujar un elemento de un producto para el modalEdicion 
 function modalEditarElemento(elemento, elemId) {
-	let insertarHTML2 = '<div id="elemento-' + elemId + '" class="flex-container flex-baseline"> \
+	let insertarHTML = '<div id="elemento-' + elemId + '" class="flex-container flex-baseline"> \
+			<a class="borde borde-rad-05 padding-03 color-focus color-botones _sombra-x" href="#"><i class="fa fa-times txt-big color-error" aria-hidden="true" onclick="javascript:console.log(this.id)"></i></a> \
 			<p class="producto txt-medio">' + elemento.cantidad + ' - ' + elemento.producto.descripcion + '</p>';
-	return insertarHTML2;
+	return insertarHTML;
 }
 
 // *************************************************************
 // funcion para mostrar los toppings y editarlos
 function ModalEditarToppings(toppings) {
 	
-	insertarHTML =	'<div id="' + 100 + '" class="flex-container centrar-elem margen-b-05"> \
+	insertarHTML =	'<div id="' + 100 + '" class="flex-container flex-centrar margen-b-05"> \
 				<p id="todoModal" onclick="javascript:toppingTodoNada(true)" class="toppings top-neutral">TODO</p> \
 				<p id="frijolModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.frijolTop) + '">' + kTop.frijolTop + '</p> \
 				<p id="verduraModal" onclick="javascript:toppingChange(this)" class="toppings ' + claseCSSToppings(toppings.verdura) + '">' + kTop.verdura + '</p> \
@@ -258,9 +286,13 @@ function refrescarListaPedido(pedido, contenedorPlatosId, editarPlato) {
 	let contenedorPlatos = document.getElementById(contenedorPlatosId);
 	let plato = "";
 	for (let i = 0; i < pedido.length; i++) {
-			plato = prepararDibujarPlato(i, pedido, editarPlato);
+
+			// dibuja un plato con su nombre de plato
+			plato = prepararDibujarPlato(i, pedido[i], editarPlato);
+		
 			// contenedorPlatos.insertAdjacentHTML("beforeend", plato);
-			contenedorPlatos.insertAdjacentHTML("afterbegin", plato);
+		
+			// contenedorPlatos.insertAdjacentHTML("afterbegin", plato);
 			dibujarElementos(i,pedido[i], editarPlato);
 			// console.log(pedido[i].elementos.length);
 		}

@@ -33,7 +33,7 @@ var bPagar = 		document.getElementById("pagar");
 var bRegresar = 	document.getElementById("cancelar");
 
 var modalEdicion = document.getElementById("modalEdicion");
-var modalEdicionClose = 	document.getElementById("modalEdicionClose");
+var modalEdicionAceptar = 	document.getElementById("modalEdicionAceptar");
 
 // *************************************************************
 // *** 	CONSTANTES Y VARIABLES DE DEFINICIONES
@@ -115,7 +115,7 @@ var toppings = {
 // DIV contenedor de los PEDIDOS
 var pedidoLista = document.getElementById("pedidoLista");
 
-// operadores del input[number] para incrementar y decrementar el valor
+// operadores del input[number] para incrementar y decrementar el valor de la CANTIDAD 
 bCantPlus.onclick = function () {
 	iCantidad.stepUp();
 };
@@ -124,7 +124,7 @@ bCantMinus.onclick = function () {
 };
 
 // click en la X del modal para cerrarlo
-modalEdicionClose.onclick = function () {
+modalEdicionAceptar.onclick = function () {
 	// setToppings();
 	modalEdicion.style.display = "none";
 	// refrescarListaPedido(pedido, "pedidoLista", true);

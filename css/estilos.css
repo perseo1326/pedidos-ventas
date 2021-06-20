@@ -140,12 +140,20 @@ hr {
 	color: yellow;
 }
 
+.color-black {
+	color: black;
+}
+
 .color-focus {
 	color: var(--color-focus);
 }
 
 .color-a-botones {
 	color: var(--color-a-botones);
+}
+
+.color-botones {
+	background-color: var(--color-botones);
 }
 
 .borde {
