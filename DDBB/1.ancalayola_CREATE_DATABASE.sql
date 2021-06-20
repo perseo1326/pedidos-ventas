@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`DetallePedido` (
   `detallePedido_cantidad` TINYINT NOT NULL,
   `detallePedido_ProductoId` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`detallePedido_id`),
-  UNIQUE INDEX `detalle_Pedido_pedido_id_UNIQUE` (`detallePedido_PedidoNum` ASC) ,
+  UNIQUE INDEX `detalle_Pedido_pedido_id_UNIQUE` (`detallePedido_id` ASC) ,
   INDEX `IDX_numPedido` (`detallePedido_PedidoNum` ASC) ,
   INDEX `IDX_Producto` (`detallePedido_ProductoId` ASC) ,
   CONSTRAINT `FK_DetallePedido_Pedidos`
