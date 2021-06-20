@@ -80,7 +80,7 @@
                 }
 
 
-                // header('Location: inicio.controlador.php');
+                header('Location: inicio.controlador.php');
             }
     } else {
         echo "ERROR! ha habido un error en el acceso a la ddbb.";
