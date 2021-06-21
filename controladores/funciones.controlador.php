@@ -145,6 +145,7 @@
             $toppings = "";
         } else if($tops === NADA) {
             // $toppings = "<li>NADA</li>";
+            $toppings = NADA;
         } else if(is_array($tops)) {
             if ($tops[0] === true) {
                 foreach ($tops as $key => $t) {
