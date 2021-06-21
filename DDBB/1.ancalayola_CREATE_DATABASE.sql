@@ -108,7 +108,6 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`categorias` (
   UNIQUE INDEX `cat_id` (`cat_id` ASC) ,
   UNIQUE INDEX `cat_codigo` (`cat_codigo` ASC) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
 COMMENT = 'En esta tabla se encontraran TODAS las categorias y subcategorias que se vayan creando.  Las categorias padres tendran en su campo \"cat_padre\" un null o 0 (cero) y las demas DEBERAN  tener una referencia a una categoria dentro de la misma tabla la cual será su categoria PADRE. Tambien hay un campo \"cat_nivel\" para indicar el nivel de profundidad de la categoria en cuestion, esto para facilitar la busqueda de categorias de bajos niveles en caso de ser necesario.';
 
 
@@ -127,7 +126,6 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`presentacion` (
   UNIQUE INDEX `presentacion_id` (`presentacion_id` ASC) ,
   UNIQUE INDEX `presentacion_codigo` (`presentacion_codigo` ASC) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
 COMMENT = 'presentacion, unidad de medida o porcion para un producto determinado. en esta tabla se definen los tipos de medidas o porciones que seran usadas por los productos. Ej: litro (lt), medio litro (500ml), 355 ml, unidad, etc.';
 
 
@@ -153,7 +151,6 @@ CREATE TABLE IF NOT EXISTS `ancalayola`.`ingredientes` (
     FOREIGN KEY (`ingred_presentacion`)
     REFERENCES `ancalayola`.`presentacion` (`presentacion_id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
 COMMENT = 'listado de ingredientes usados para identificar un producto (panucho).';
 
 
