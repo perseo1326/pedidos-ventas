@@ -12,7 +12,8 @@ class Buscar_Controlador {
     protected $pagado;
     protected $total;
     protected $notas;
-    protected OrdenJSON $orden;
+    // protected OrdenJSON $orden;
+    protected $orden;
 
     public function __construct() {
         $this->numPedido = (int) 0;
