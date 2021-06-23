@@ -83,4 +83,4 @@ bBuscar.onclick = function () {
 // *************************************************************
 // ONLOAD
 
-modalBusqueda.style.display = "block";
+// modalBusqueda.style.display = "block";
