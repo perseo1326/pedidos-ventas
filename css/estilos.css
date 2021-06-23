@@ -10,6 +10,7 @@
 	--color-fondo: rgb(144, 238, 144);
 	--color-2do-fondo: rgb(255, 255, 0);
 	--color-plato: lightyellow;
+	--color-neutral: lightblue;
 
 	--borde-rad-05: 0.5rem;
 	--borde-rad-1: 1rem;
@@ -132,6 +133,17 @@ hr {
 	background-color: yellow;
 }
 
+.fondo-boton-error {
+	background-color: orangered !important;
+}
+
+.fondo-boton-neutral {
+	background-color: var(--color-neutral) !important;
+}
+
+.fondo-boton-warning {
+	background-color: var(--color-2do-fondo) !important;
+}
 .color-error {
 	color: orangered;
 }
@@ -550,7 +562,7 @@ div p.producto {
 }
 
 .top-neutral {
-	background-color: lightblue;
+	background-color: var(--color-neutral);
 }
 
 .top-si {

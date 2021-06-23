@@ -62,9 +62,12 @@
 							type="button"
 							value="Pagar"
 						/>
+
+						<div class="ancho-100 padding-1"> </div>
+
 						<input
 							id="cancelar"
-							class="padding-05 txt-medio margen-b-05"
+							class="padding-05 txt-medio margen-b-05 fondo-boton-error"
 							type="button"
 							value="Cancelar"
 						/>

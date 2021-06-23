@@ -519,7 +519,7 @@ function esconderMenuPlato() {
 // *************************************************************
 // funcion para revisar el estado (ABIERTO_CERRADO) del plato previo a uno eliminado
 function revisarEstado(platoId) {
-	if (platoId > 0) {
+	if (platoId >= 0) {
 		if (pedido[platoId].cantTotal < 3 && pedido[platoId].status == status.CERRADO) {
 			pedido[platoId].status = status.ABIERTO;
 		}
