@@ -13,7 +13,7 @@ const kTop = {
 	cebolla: "Cebolla",
 	tomate: "Tomate",
 	todo: "TODO",
-	nada: "NATURAL",
+	nada: "NADA",
 };
 
 var patronNumerico = /[0-9.]/;
