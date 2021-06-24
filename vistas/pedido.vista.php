@@ -91,6 +91,9 @@
 					type="button"
 					value="Pagar"
 				/>
+
+				<div class="ancho-100 padding-1"> </div>
+
 				<input
 					id="cancelar"
 					class="txt-medio margen-b-05 padding-vert-05"

@@ -172,6 +172,7 @@
                     <input id="confirmar" class="txt-medio padding-vert-05 margen-b-05" type="button" value="Confirmar" />
                     <input id="pedido" data-destino="<?php echo DESTINO_PEDIDO; ?>" class="txt-medio padding-vert-05 margen-b-05" type="button" value="Pedido" />
                     <input id="bebidas" data-destino="<?php echo DESTINO_BEBIDAS; ?>" class="txt-medio padding-vert-05 margen-b-05" type="button" value="Bebidas" />
+                    <div class="ancho-100 padding-1"> </div>
                     <input id="cancelar" class="txt-medio padding-vert-05 margen-b-05" type="button" value="Cancelar" />
                 </div>
             </div>
