@@ -67,13 +67,13 @@
 
 				<input
 					id="adicionar"
-					class="txt-medio margen-b-05 padding-vert-05"
+					class="txt-medio margen-b-05 padding-vert-05 fondo-boton-warning"
 					type="button"
 					value="Añadir "
 				/>
 				<input
 					id="nuevoPlato"
-					class="txt-medio margen-b-05 padding-vert-05"
+					class="txt-medio margen-b-05 padding-vert-05 fondo-boton-neutral"
 					type="button"
 					value="Nuevo Plato"
 				/>
@@ -96,7 +96,7 @@
 
 				<input
 					id="cancelar"
-					class="txt-medio margen-b-05 padding-vert-05"
+					class="txt-medio margen-b-05 padding-vert-05 fondo-boton-error"
 					type="button"
 					value="Cancelar"
 				/>

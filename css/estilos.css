@@ -10,6 +10,7 @@
 	--color-fondo: rgb(144, 238, 144);
 	--color-2do-fondo: rgb(255, 255, 0);
 	--color-plato: lightyellow;
+	--color-neutral: lightblue;
 
 	--borde-rad-05: 0.5rem;
 	--borde-rad-1: 1rem;
@@ -130,6 +131,18 @@ hr {
 
 .fondo-warning {
 	background-color: yellow;
+}
+
+.fondo-boton-error {
+	background-color: orangered !important;
+}
+
+.fondo-boton-neutral {
+	background-color: var(--color-neutral) !important;
+}
+
+.fondo-boton-warning {
+	background-color: var(--color-2do-fondo) !important;
 }
 
 .color-error {
@@ -407,7 +420,7 @@ input[type="number"]:focus {
 div p + input[type="button"] {
 	margin: 0.2rem;
 	padding: 0.3rem;
-	background-color: lightblue;
+	background-color: var(--color-neutral);
 	border-radius: var(--borde-rad-05);
 }
 
@@ -558,7 +571,7 @@ div p.producto {
 }
 
 .top-neutral {
-	background-color: lightblue;
+	background-color: var(--color-neutral);
 }
 
 .top-si {
