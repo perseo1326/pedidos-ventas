@@ -425,7 +425,7 @@ function esconderMenuPlato() {
 // *************************************************************
 // funcion para revisar el estado (ABIERTO_CERRADO) del plato previo a uno eliminado
 function revisarEstado(platoId) {
-	if (platoId > 0) {
+	if (platoId >= 0) {
 		if (pedido[platoId].cantTotal < 3 && pedido[platoId].status == status.CERRADO) {
 			pedido[platoId].status = status.ABIERTO;
 		}
@@ -476,7 +476,7 @@ function editarPlato(platoId) {
 	console.log(pedido[platoId]);
 
 	esconderMenuPlato();
-	refrescarListaPedido(pedido, "pedidoLista", true);
+	refrescarListaPedido(pedido, "pedidoLista");
 }
 
 // *************************************************************
@@ -641,4 +641,4 @@ bRegresar.onclick = function () {
 limpiarSabores();
 
 // redibujar los platos de un pedido en la vista
-refrescarListaPedido(pedido, "pedidoLista", true);
+refrescarListaPedido(pedido, "pedidoLista");

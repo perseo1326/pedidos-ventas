@@ -57,8 +57,80 @@ function limpiar(id) {
 }
 
 // *************************************************************
+// funcion para visualizar los toppings de un elemento
+function dibujarToppings(producto) {
+
+	// creacion del "div" donde se muestran los toppings
+	let nodoToppings = document.createElement("div");
+	nodoToppings.classList.add("flex-container", "flex-baseline");
+
+	let top = clase = "";
+	if (
+		producto.frijolTop &&
+		producto.verdura &&
+		producto.qRallado &&
+		producto.cebolla &&
+		producto.tomate
+	) {
+		// si todo verdadero => TODO
+		top = '<p class="toppings top-si ">' + kTop.todo + "</p>";
+	} else if (
+		!producto.frijolTop &&
+		!producto.verdura &&
+		!producto.qRallado &&
+		!producto.cebolla &&
+		!producto.tomate
+	) {
+		// si todo falso => NADA
+		top = '<p class="toppings top-no ">' + kTop.nada + "</p>";
+	} else {
+		// Seleccionar la clase CSS para cada uno de los items
+		clase = producto.frijolTop ? "si" : "no";
+		top += '<p class="toppings top-' + clase + '">' + kTop.frijolTop + "</p>";
+		clase = producto.verdura ? "si" : "no";
+		top += '<p class="toppings top-' + clase + '">' + kTop.verdura + "</p>";
+		clase = producto.qRallado ? "si" : "no";
+		top += '<p class="toppings top-' + clase + '">' + kTop.qRallado + "</p>";
+		clase = producto.cebolla ? "si" : "no";
+		top += '<p class="toppings top-' + clase + '">' + kTop.cebolla + "</p>";
+		clase = producto.tomate ? "si" : "no";
+		top += '<p class="toppings top-' + clase + '">' + kTop.tomate + "</p>";
+	}
+
+	nodoToppings.insertAdjacentHTML("beforeend", top);
+
+	return nodoToppings;
+}
+
+// *************************************************************
+//funcion para dibujar un "ELEMENTO" dentro de un plato
+function dibujarElemento(indicePlato, indiceElemento, elemento) {
+
+	// div contenedor de todo el elemento dentro del plato
+	let padre = document.createElement("div");
+	padre.id = "elem-" + indicePlato + "-" + indiceElemento;
+	padre.classList.add("flex-container", "flex-baseline");
+	
+	// parrafo con la descripcion del elemento
+	let hijo1 = document.createElement("p");
+	hijo1.classList.add("producto", "txt-medio");
+	
+	// nodo de texto del parrafo con la cantidad y la descripcion del elemento
+	let nodo1 =  document.createTextNode(elemento.cantidad + 
+		' - ' + elemento.producto.descripcion);
+	hijo1.appendChild(nodo1);
+	
+	let hijo2Toppings = dibujarToppings(elemento.producto);
+
+	padre.appendChild(hijo1);
+	padre.appendChild(hijo2Toppings);
+
+	return padre;
+}
+
+// *************************************************************
 //funcion para dibujar un "plato" en la seccion del pedido
-function prepararDibujarPlato( indice, plato) {
+function dibujarPlato( indice, plato) {
 	indice = Number(indice);
 	if (indice == "NaN") {
 		console.log("ERROR! preparando el dibujado de los platos.");
@@ -67,21 +139,25 @@ function prepararDibujarPlato( indice, plato) {
 
 	let name = plato.nombrePlato.toUpperCase();
 	if (name != "") {
-		// nombreHTML = document.createElement("span");
-		// nombreHTML.classList.add("txt-medio", "nombre");
-		// nombreHTML.createTextNode(" -- " + name + " -- ");
 		name = "<span class='txt-medio nombre'> -- " + name + " -- </span>";
 	}
 
-	platoHTML = document.createElement("div");
-	platoHTML.id = "pl-" + indice;
-	platoHTML.classList.add("ancho-100", "margen-b-05", "plato", "sombra-x");
+	nodoPlato = document.createElement("div");
+	nodoPlato.id = "pl-" + indice;
+	nodoPlato.classList.add("ancho-100", "margen-b-05", "plato", "sombra-x");
 
-	// let platoHTML = ' \
-	// <div id="pl-' +	indice + '" class="ancho-100 margen-b-05 plato sombra-x"> ';
+	// nodo para la edicion del plato
+	let nodoEdicion = document.createElement("div");
+	nodoEdicion.classList.add("edicion", "txt-big");
 
-	// editar plato
-	// if(editarPlato) {
+	// TODO: colcar la funcion "javascript:modalEditarPlato" para editar el plato
+	
+	// icono de lapiz para la edicion del plato
+	let nodoEdicionLapiz = '<i class="fa fa-pencil" aria-hidden="true"></i>';
+	nodoEdicion.insertAdjacentHTML("beforeend", nodoEdicionLapiz);
+
+	nodoPlato.appendChild(nodoEdicion);
+
 	if(false) {
         platoHTML += '<div class=" edicion clearfix"> \
 				<span class="bloque" onclick="javascript:modalEditarPlato(' + indice + ')"><i class="fa fa-pen-square txt-medio"></i></span> \
@@ -98,19 +174,20 @@ function prepararDibujarPlato( indice, plato) {
 	// 	</div> \
 	
 	// Numero de plato y nombre de plato
-	// numeroNombrePlato = document.createElement("div");
 	titulo = document.createElement("h2");
 	titulo.classList.add("txt-medio");
 	tituloTXT = document .createTextNode("Plato No. " + (indice + 1) + name);
 	titulo.appendChild(tituloTXT);
 
-	platoHTML.appendChild(titulo);
+	nodoPlato.appendChild(titulo);
 
-	plato.elementos.forEach(elemento => {
-		
-	});
+	for (let j = 0; j < plato.elementos.length; j++) {
 
-	return platoHTML;
+		nodoElem = dibujarElemento(indice, j, plato.elementos[j]);
+		nodoPlato.appendChild(nodoElem);
+	}
+
+	return nodoPlato;
 }
 
 // *************************************************************
@@ -196,104 +273,19 @@ function modalEditarPlato(platoId) {
 }
 
 // *************************************************************
-//funcion para dibujar "ELEMENTOS" dentro de un plato
-function dibujarElementos(indicePlato, nuevoPlato, editarToppings) {
-	var htmlElem = "";
-	const plato = document.getElementById("pl-" + indicePlato); // nodo abuelo
-	for (let i = 0; i < nuevoPlato.elementos.length; i++) {
-		let padre = document.createElement("div");
-		padre.id = "elem-" + indicePlato + "-" + i;
-		padre.classList.add("flex-container", "flex-baseline");
-		
-		let hijo1 = document.createElement("p");
-		hijo1.classList.add("producto", "txt-medio");
-		
-		let nodo1 =  document.createTextNode(nuevoPlato.elementos[i].cantidad + 
-			' - ' + nuevoPlato.elementos[i].producto.descripcion);
-		hijo1.appendChild(nodo1);
-		
-		let hijo2 = document.createElement("input");
-		hijo2.setAttribute("type", "button");
-		hijo2.setAttribute("value", "Toppings");
-		if (editarToppings) {
-			// permitir editar los Toppings
-			hijo2.setAttribute("onclick", ("javascript:editarToppings('" + padre.id + "');"))
-			// hijo2.onclick = function() { 
-				// 	editarToppings(padre.id);
-			// };
-			hijo2.removeAttribute("disabled");
-		} else {
-			hijo2.setAttribute("disabled", "");
-		}
-			
-		let hijo3 = document.createElement("div");
-		hijo3.classList.add("flex-container", "flex-baseline");
-		htmlElem =  dibujarToppings(nuevoPlato.elementos[i].producto);
-		hijo3.insertAdjacentHTML("beforeend", htmlElem);
-
-		padre.appendChild(hijo1);
-		padre.appendChild(hijo2);
-		padre.appendChild(hijo3);
-
-		plato.appendChild(padre);
-	}
-}
-
-// *************************************************************
-// funcion para visualizar los toppings de un elemento
-function dibujarToppings(producto) {
-	let top = clase = "";
-	if (
-		producto.frijolTop &&
-		producto.verdura &&
-		producto.qRallado &&
-		producto.cebolla &&
-		producto.tomate
-	) {
-		// si todo verdadero => TODO
-		top = '<p class="toppings top-si ">' + kTop.todo + "</p>";
-	} else if (
-		!producto.frijolTop &&
-		!producto.verdura &&
-		!producto.qRallado &&
-		!producto.cebolla &&
-		!producto.tomate
-	) {
-		// si todo falso => NADA
-		top = '<p class="toppings top-no ">' + kTop.nada + "</p>";
-	} else {
-		// Seleccionar la clase CSS para cada uno de los items
-		clase = producto.frijolTop ? "si" : "no";
-		top +=
-			'<p class="toppings top-' + clase + '">' + kTop.frijolTop + "</p>";
-		clase = producto.verdura ? "si" : "no";
-		top += '<p class="toppings top-' + clase + '">' + kTop.verdura + "</p>";
-		clase = producto.qRallado ? "si" : "no";
-		top += '<p class="toppings top-' + clase + '">' + kTop.qRallado + "</p>";
-		clase = producto.cebolla ? "si" : "no";
-		top += '<p class="toppings top-' + clase + '">' + kTop.cebolla + "</p>";
-		clase = producto.tomate ? "si" : "no";
-		top += '<p class="toppings top-' + clase + '">' + kTop.tomate + "</p>";
-	}
-	return top;
-}
-
-// *************************************************************
 // funcion para redibujar todo el pedido en la vista HTML
-function refrescarListaPedido(pedido, contenedorPlatosId, editarPlato) {
+function refrescarListaPedido(pedido, contenedorPlatosId) {
 	limpiarHijosHTML(contenedorPlatosId);
+	console.log("refrescar lista pedido");
 	let contenedorPlatos = document.getElementById(contenedorPlatosId);
 	let plato = "";
 	for (let i = 0; i < pedido.length; i++) {
 
 			// dibuja un plato con su nombre de plato
-			plato = prepararDibujarPlato(i, pedido[i]);
+			plato = dibujarPlato(i, pedido[i]);
 		
-			// contenedorPlatos.insertAdjacentHTML("beforeend", plato);
-		
-			// contenedorPlatos.insertAdjacentHTML("afterbegin", plato);
-			dibujarElementos(i,pedido[i], editarPlato);
-			// console.log(pedido[i].elementos.length);
+			contenedorPlatos.insertBefore(plato, contenedorPlatos.childNodes[0]); 
+			// contenedorPlatos.appendChild(plato);
 		}
 }
 

@@ -527,7 +527,7 @@ div.pedido {
 
 .plato {
 	position: relative;
-	padding: 0.5rem 1.7rem 0.5rem 0.5rem;
+	padding: 0.5rem 2rem 0.5rem 0.5rem;
 	background-color: var(--color-plato);
 	border: 1px solid black;
 	border-radius: 0.5rem;
@@ -538,6 +538,10 @@ div.pedido {
 	position: absolute;
 	top: 0.2rem;
 	right: 0.2rem;
+}
+
+.plato div.edicion:hover {
+	color: orangered;
 }
 
 div span.error-total {
