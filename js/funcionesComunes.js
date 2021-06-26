@@ -58,7 +58,7 @@ function limpiar(id) {
 
 // *************************************************************
 //funcion para dibujar un "plato" en la seccion del pedido
-function prepararDibujarPlato( indice, plato, editarPlato) {
+function prepararDibujarPlato( indice, plato) {
 	indice = Number(indice);
 	if (indice == "NaN") {
 		console.log("ERROR! preparando el dibujado de los platos.");
@@ -106,11 +106,10 @@ function prepararDibujarPlato( indice, plato, editarPlato) {
 
 	platoHTML.appendChild(titulo);
 
-	// platoHTML += '\
-	// 	<div> \
-    //         <h2 class="txt-medio ">Plato No. ' + (indice + 1) + name + '</h2> \
-    //     </div> \
-    // </div> ';
+	plato.elementos.forEach(elemento => {
+		
+	});
+
 	return platoHTML;
 }
 
@@ -288,7 +287,7 @@ function refrescarListaPedido(pedido, contenedorPlatosId, editarPlato) {
 	for (let i = 0; i < pedido.length; i++) {
 
 			// dibuja un plato con su nombre de plato
-			plato = prepararDibujarPlato(i, pedido[i], editarPlato);
+			plato = prepararDibujarPlato(i, pedido[i]);
 		
 			// contenedorPlatos.insertAdjacentHTML("beforeend", plato);
 		
