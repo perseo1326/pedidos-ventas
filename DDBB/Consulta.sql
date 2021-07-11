@@ -1,5 +1,14 @@
 
 
+SELECT * FROM productos;
+
+
+UPDATE productos 
+SET prod_precio = 100, prod_status = 'N'
+WHERE prod_codigo = 'hor1lt';
+
+
+
 SELECT * FROM Pedidos;
 
 SELECT pedidos_numPedido AS pedido, pedidos_nombre AS nombre, pedidos_fmodificacion AS fecha, pedidos_tipo AS tipo, pedidos_numtelefono AS telefono, pedidos_estado AS estado,
