@@ -425,7 +425,8 @@ div p + input[type="button"] {
 }
 
 div.modal {
-	display: none;
+	/* display: none; */
+	/* visibility: hidden; */
 	position: fixed; /* Stay in place */
 	left: 0;
 	top: 0;
@@ -623,6 +624,14 @@ input[type="button"].limpiar-nombre {
 
 .no-visible {
 	display: none;
+}
+
+.visible1 {
+	visibility: visible;
+}
+
+.no-visible1 {
+	visibility: hidden;
 }
 
 /* *************** MEDIA QUERY PARA 768px *************** */

@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="../css/all.css" />
 		<!-- font Awsome 4.7 iconos -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- <link rel="stylesheet" href="../css/font-awesome.min.css"> -->
 		<link rel="stylesheet" href="../css/estilos.css" />
 		<link rel="stylesheet" href="../css/elementos.css" />
 		<link rel="stylesheet" href="../css/impresora-comanda.css">

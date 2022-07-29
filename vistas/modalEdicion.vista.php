@@ -1,5 +1,5 @@
 
-        <div id="modalEdicion" class="modal">
+        <div id="modalEdicion" class="modal no-visible1">
             <div class="flex-container ancho-100 padding-05 borde borde-rad-1 modal-contenido centrar-elem">
                 <h2 class="txt-centro txt-big">Editar Plato</h2>
 

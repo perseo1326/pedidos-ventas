@@ -126,8 +126,11 @@ bCantMinus.onclick = function () {
 // click en la X del modal para cerrarlo
 modalEdicionAceptar.onclick = function () {
 	// setToppings();
-	modalEdicion.style.display = "none";
-	// refrescarListaPedido(pedido, "pedidoLista", true);
+	// console.log(pedido);
+	// modalEdicion.style.display = "none";
+	// modalEdicion.style.visibility = "hidden";
+	modalEdicion.classList.replace("visible1", "no-visible1");
+	refrescarListaPedido(pedido, "pedidoLista");
 };
 
 // *************************************************************
@@ -571,8 +574,8 @@ bAdicionar.onclick = function () {
 		}
 
 	}
-	console.log("Pedido total: ");
-	console.log(pedido);
+	// console.log("Pedido total: ");
+	// console.log(pedido);
 };
 
 // *************************************************************
@@ -610,8 +613,8 @@ bNuevoPlato.onclick = function () {
 			limpiarSabores();
 		}
 	}
-	console.log("Pedido total: ");
-	console.log(pedido);
+	// console.log("Pedido total: ");
+	// console.log(pedido);
 };
 
 // *************************************************************
